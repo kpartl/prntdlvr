@@ -1,0 +1,12 @@
+parameters:
+    vendor: 
+    host: 
+    database: 
+    user: 
+    passwd: 
+
+nette:
+
+services:
+
+factories:
