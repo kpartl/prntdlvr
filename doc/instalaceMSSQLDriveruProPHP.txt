@@ -1,0 +1,8 @@
+1. v C:\xampp\php\php.ini pridat 
+extension=php_sqlsrv_54_ts.dll
+extension=php_pdo_sqlsrv_54_ts.dll
+
+2. nakopirovat tyto soubory do C:\xampp\php\ext\ (stazeno a rozbaleno z http://download.microsoft.com/download/C/D/B/CDB0A3BB-600E-42ED-8D5E-E4630C905371/SQLSRV30.EXE)
+3. stahnout a nainstalovat MSSQL native clienta z http://download.microsoft.com/download/F/E/D/FEDB200F-DE2A-46D8-B661-D019DFE9D470/ENU/x86/sqlncli.msi
+
+Pro konfiguraci MSSQL tabulek v PHP je dobrej Adminer http://www.adminer.org/en/

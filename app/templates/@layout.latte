@@ -15,31 +15,34 @@
 
         <title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
 
-        <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
-        <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">        
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">		
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap3.nextras.datagrid.css">
+
+
         <link rel="shortcut icon" href="{$basePath}/favicon.ico">
+		<script src="{$basePath}/js/jquery.js"></script>
+		<script src="{$basePath}/js/netteForms.js"></script>
+		
+		<script src="{$basePath}/js/bootstrap.min.js"></script>
+		<script src="{$basePath}/js/main.js"></script>
+		<script src="{$basePath}/js/nette.ajax.js"></script>
+		<script src="{$basePath}/js/nextras.datagrid.js"></script>
+		<script>$(function() {
+				$.nette.init();
+			});</script>
         {block head}{/block}
     </head>
 
-    <body>
     <body>	
         <script> document.documentElement.className += ' js'</script>
 
         <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-        <p id="logged-in" n:if="$user->loggedIn">Přihlášen uživatel <B>{$user->identity->username}</B>. <a n:href="Sign:out">Odhlásit</a></p>
-
-        <div id="content">
+        <div class="container" id="content">
             {include #content}
         </div>
 
-
-
-
-        {block scripts}
-        <script src="{$basePath}/js/jquery.js"></script>
-        <script src="{$basePath}/js/netteForms.js"></script>
-        <script src="{$basePath}/js/main.js"></script>
-        {/block}
     </body>
 </html>

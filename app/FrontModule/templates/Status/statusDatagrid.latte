@@ -1,0 +1,27 @@
+{define col-id_spool}
+<td>
+	 {*var $args = array('id_spool' => $row->id_spool, 'id_company' => $row->company->id)*} 
+	
+{*	<a href="{plink StatusDetail:default, (expand) $args}"> *}
+	 <a href="{plink StatusDetail:default, $row->id}">
+		{$row->id_spool}
+		</a>
+	</td>
+{/define}
+
+
+
+{define col-dateIn}
+<td>
+	{$row->dateIn|date:'d.m.Y H:i:s'}
+</td>
+{/define}
+
+{define col-docType}
+<td>
+	{ifset $row->docType}
+		{$row->docType->name}
+	{/ifset}
+</td>
+{/define}
+

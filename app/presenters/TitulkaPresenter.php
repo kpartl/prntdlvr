@@ -30,12 +30,12 @@ class TitulkaPresenter extends BasePresenter {
 
     public function renderDefault() {
 
-        $this->template->spolecnosti = $this->database->table('Spolecnost')
-                ->order('nazev DESC')
-        ;
+       // $this->template->spolecnosti = $this->database->table('Spolecnost')->order('nazev DESC');
+               
+        
     }
 
-    public function createComponentDatagridSpolecnosti() {
+    public function createComponentDatagridSpools() {
         $grid = new Nextras\Datagrid\Datagrid;
         $grid->addColumn('ID');
         $grid->addColumn('Nazev', 'Nazev')->enableSort();
@@ -56,6 +56,7 @@ class TitulkaPresenter extends BasePresenter {
             return $selection;
         });
         $grid->addCellsTemplate(__DIR__ . '/../templates/Titulka/datagridSpolecnosti.latte');
+		
         return $grid;
     }
 

@@ -1,0 +1,6 @@
+tabulka TPP_BI - 2x sloupec s nazvem BI_TOTAL_PAGES - prejmenoval jsem sloupec pro celkovy pocet listu na BI_TOTAL_SHEETS
+tabulka TPP_DOCUMENT - sloupec ID_OPRATOR jsem prejmenoval na ID_OPERATOR
+tabulka TPP_DOCUMENT - sloupec DOC_DIST_CHANEL jsem prejmenoval na DOC_DIST_CHANNEL
+ID_TOTAL_AMOUT_BANNER zmeneno na ID_TOTAL_AMOUNT_BANNER
+
+

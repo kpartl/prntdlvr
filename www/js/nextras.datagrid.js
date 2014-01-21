@@ -9,29 +9,29 @@
 $.nette.ext('datagrid', {
 	init: function() {
 		var datagrid = this;
-		this.grids = $('.grid').each(function() {
+		this.grids = $('.datagrid').each(function() {
 			datagrid.load($(this));
 		});
 	},
 	load: function() {
 		var datagrid = this;
-		$('.grid thead input').off('keypress.datagrid').on('keypress.datagrid', function(e) {
+		$('.datagrid thead input').off('keypress.datagrid').on('keypress.datagrid', function(e) {
 			if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 				$(this).parents('tr').find('[name=filter\\[filter\\]]').trigger(datagrid.createClickEvent($(this)));
 				e.preventDefault();
 			}
 		});
-		$('.grid thead select').off('change.datagrid').on('change.datagrid', function(e) {
+		$('.datagrid thead select').off('change.datagrid').on('change.datagrid', function(e) {
 			$(this).parents('tr').find('[name=filter\\[filter\\]]').trigger(datagrid.createClickEvent($(this)));
 			e.preventDefault();
 		});
-		$('.grid tbody td:not(.grid-col-actions)').off('click.datagrid').on('click.datagrid', function(e) {
+		$('.datagrid tbody td:not(.col-actions)').off('click.datagrid').on('click.datagrid', function(e) {
 			if (e.ctrlKey) {
 				$(this).parents('tr').find('a[data-datagrid-edit]').trigger(datagrid.createClickEvent($(this)));
 				e.preventDefault();
 			}
 		});
-		$('.grid tbody input').off('keypress.datagrid').on('keypress.datagrid', function(e) {
+		$('.datagrid tbody input').off('keypress.datagrid').on('keypress.datagrid', function(e) {
 			if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 				$(this).parents('tr').find('[name=edit\\[save\\]]').trigger(datagrid.createClickEvent($(this)));
 				e.preventDefault();
@@ -39,7 +39,7 @@ $.nette.ext('datagrid', {
 		});
 	},
 	before: function(xhr, settings) {
-		this.grid = settings.nette.el.parents('.grid');
+		this.grid = settings.nette.el.parents('.datagrid');
 	},
 	success: function() {
 		this.load(this.grid);
@@ -51,7 +51,7 @@ $.nette.ext('datagrid', {
 		var paramName = grid.attr('data-grid-name');
 		grid.find('tr:has([name=edit\\[cancel\\]])').each(function(i, el) {
 			$(el).find('input').get(0).focus();
-			idToClose.push($(el).find('.grid-primary-value').val());
+			idToClose.push($(el).attr('data-grid-primary'));
 		});
 
 		if (idToClose.length == 0) {

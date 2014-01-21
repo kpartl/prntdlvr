@@ -4,35 +4,50 @@
 # If you don't protect this directory from direct web access, anybody will be able to see your passwords.
 # http://nette.org/security-warning
 #
-common:
-	parameters:
 
-	php:
-		date.timezone: Europe/Prague
-		# zlib.output_compression: yes
+php:
+	date.timezone: Europe/Prague
+	# zlib.output_compression: yes
 
-	nette:
-		application:
-			errorPresenter: Error
+nette:
+	application:
+		errorPresenter: Error
+		mapping:
+			*: App\*Module\*Presenter
 
-		database:
-			dsn: 'mysql:host=localhost;dbname=trans'
-			user: trans
-			password: trans
-
-		session:
-			expiration: 14 days
+	session:
+		expiration: 14 days
+	security:
+		users:
+			admin: secret  # user 'admin', password 'secret'
 
 
-	services:
-		authenticator: Authenticator
-		routerFactory: RouterFactory
-		router: @routerFactory::createRouter
+services:
+	routerFactory: RouterFactory
+	router: @routerFactory::createRouter
+	- LeanMapper\Connection(%database%)
+	#database:
+	#	class: LeanMapper\Connection
+	#	arguments: ['%database%']
+	- Model\Mapper\DefaultMapper	
+	- Model\Repository\CompanyRepository 
+	- Model\Repository\UserRepository 
+	- Model\Repository\StatusRepository 
+	- Model\Repository\DocTypeRepository 
 
-
-	factories:
-
-
-production < common:
-
-development < common:
+#production < common:
+parameters:
+	database:
+		driver: mssql2005
+		database: trans 
+		host: HP10036276\SQLEXPRESS
+		#host: HP20002369\SQLEXPRESS
+		username: trans
+		password: trans
+		#profiler: false
+		#driver: mysql
+		#database: trans 
+		#host: localhost		
+		#username: trans
+		#password: trans
+		#profiler: false
