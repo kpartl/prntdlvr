@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     21.1.2014 13:28:00                           */
+/* Created on:     21.1.2014 21:53:33                           */
 /*==============================================================*/
 
 
@@ -16,6 +16,13 @@ IF EXISTS (SELECT 1
    WHERE R.FKEYID = OBJECT_ID('TPP_DOCUMENT') AND O.NAME = 'FK_TPP_DOCU_DOCUMENT__TPP_DIST')
 ALTER TABLE TPP_DOCUMENT
    DROP CONSTRAINT FK_TPP_DOCU_DOCUMENT__TPP_DIST
+go
+
+IF EXISTS (SELECT 1
+   FROM SYS.SYSREFERENCES R JOIN SYS.SYSOBJECTS O ON (O.ID = R.CONSTID AND O.TYPE = 'F')
+   WHERE R.FKEYID = OBJECT_ID('TPP_DOCUMENT') AND O.NAME = 'FK_TPP_DOCU_DOCUMENT__TPP_DOC_')
+ALTER TABLE TPP_DOCUMENT
+   DROP CONSTRAINT FK_TPP_DOCU_DOCUMENT__TPP_DOC_
 go
 
 IF EXISTS (SELECT 1
@@ -273,7 +280,7 @@ go
 /* Table: TPP_DOCUMENT                                          */
 /*==============================================================*/
 CREATE TABLE TPP_DOCUMENT (
-   ID                   INT                  IDENTITY,
+   ID                   INT                  NOT NULL,
    ID_COMPANY           INT                  NOT NULL,
    ID_SPOOL             INT                  NOT NULL,
    DOC_ID_SPOOL_ENVELOP INT                  NULL,
@@ -429,6 +436,11 @@ go
 ALTER TABLE TPP_DOCUMENT
    ADD CONSTRAINT FK_TPP_DOCU_DOCUMENT__TPP_DIST FOREIGN KEY (DOC_DIST_CHANNEL)
       REFERENCES TPP_DIST_CHANNEL (ID)
+go
+
+ALTER TABLE TPP_DOCUMENT
+   ADD CONSTRAINT FK_TPP_DOCU_DOCUMENT__TPP_DOC_ FOREIGN KEY (ID_DOC_TYPE)
+      REFERENCES TPP_DOC_TYPE (ID)
 go
 
 ALTER TABLE TPP_DOCUMENT

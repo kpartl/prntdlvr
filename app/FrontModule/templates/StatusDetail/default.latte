@@ -31,7 +31,7 @@
 </table>
 <div>
 	{var $args = array('id_spool' => $statusEntity->id_spool, 'id_company' => $statusEntity->company->id)} 
-	<a href="{plink Doklad:default, (expand) $args}">Seznam dokladů</a>
+	<a href="{plink Document:default, (expand) $args}">Seznam dokladů</a>
 </div>
 <div>	
 	<a href="{plink Status:default, $statusEntity->company->id}">Zpět na seznam</a>

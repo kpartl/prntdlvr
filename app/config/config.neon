@@ -34,6 +34,7 @@ services:
 	- Model\Repository\UserRepository 
 	- Model\Repository\StatusRepository 
 	- Model\Repository\DocTypeRepository 
+	- Model\Repository\DocumentRepository 
 
 #production < common:
 parameters:

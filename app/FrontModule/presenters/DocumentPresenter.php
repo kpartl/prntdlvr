@@ -6,24 +6,31 @@ use Model;
 use Nette;
 
 /**
- * Class DokladPresenter
+ * Class DocumentPresenter
  * @package App\FrontModule
  */
-class DokladPresenter extends BasePresenter {
+class DocumentPresenter extends BasePresenter {
 
-	/** @var \Model\Repository\StatusRepository @inject */
-	public $statusRepository;
+	/** @var \Model\Repository\DocumentRepository @inject */
+	public $documentRepository;
+	
+	/** @persistent */
+	public $company_id;
+	
+	/** @persistent */
+	public $spool_id;
 	
 
 	/**
 	 * @return \Nextras\Datagrid\Datagrid
 	 */
-	public function createComponentDokladDatagrid() {
+	public function createComponentDocumentDatagrid() {
 		$grid = new \Nextras\Datagrid\Datagrid;
 		$grid->addColumn('id_spool', 'Id')->enableSort();
-		$grid->addColumn('doc_id', 'Id dokladu');
-		$grid->addColumn('customer_id', 'Číslo zákazníka');
-		$grid->addColumn('customer_name', 'Jméno zákazníka');
+		$grid->addColumn('docNumber', 'Id dokladu');
+		$grid->addColumn('dateIn', 'Datum přijetí')->enableSort();
+		$grid->addColumn('custommerNumber', 'Číslo zákazníka');
+		$grid->addColumn('custommerName', 'Jméno zákazníka');
 
 		$grid->setRowPrimaryKey('id');
 
@@ -58,7 +65,7 @@ class DokladPresenter extends BasePresenter {
 			else
 				$filters[$k . ' LIKE ?'] = "%$v%";
 		}
-		$selection = $this->statusRepository->findByCompany($this->company_id);
+		$selection = $this->documentRepository->findByCompanyAndSpool($this->company_id,$this->spool_id);
 		if ($order) {
 			$selection->order(implode(' ', $order));
 		}

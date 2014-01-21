@@ -6,6 +6,7 @@ use LeanMapper;
  * @property int $id (ID)
  * @property string $name (NAME)
  */
-class StatusType extends AEntity
+class DistChannel extends AEntity
 {	
 }
+
