@@ -1,0 +1,31 @@
+{define col-spoolEnvelop}
+<td>	 	
+	<a href="{plink DocumentDetail:default, $row->id}"> 	 
+		{$row->spoolEnvelop}
+	</a>
+</td>
+{/define}
+
+{define col-docType}
+<td>
+	{ifset $row->docType}
+		{$row->docType->name}
+	{/ifset}
+</td>
+{/define}
+
+{define col-distChannel}
+<td>
+	{ifset $row->distChannel}
+		{$row->distChannel->name}
+	{/ifset}
+</td>
+{/define}
+
+{define col-operator}
+<td>
+	{ifset $row->operator}
+		{$row->operator->name}
+	{/ifset}
+</td>
+{/define}

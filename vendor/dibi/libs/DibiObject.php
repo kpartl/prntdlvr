@@ -85,8 +85,7 @@ abstract class DibiObject
 	 * @throws \LogicException
 	 */
 	public function __call($name, $args)
-	{
-	    echo("Neeeee    ");
+	{	    
 		$class = get_class($this);
 
 		if ($name === '') {

@@ -13,7 +13,7 @@ use LeanMapper,
  * @property DocType|null $docType m:hasOne (ID_DOC_TYPE:TPP_DOC_TYPE) 
  * @property int|null $custommerNumber (DOC_ID_CUSTOMMER)
  * @property string|null $custommerName (DOC_CUST_NAME)
- * @property string|null $custommerAddr (DOC_CUST_ADR
+ * @property string|null $custommerAddr (DOC_CUST_ADR)
  * @property string|null $custommerCountry (DOC_CUST_COUNTRY)
  * @property int|null $docNumber (DOC_CUST_DOC_ID)
  * @property int|null $docPages (DOC_PAGES)

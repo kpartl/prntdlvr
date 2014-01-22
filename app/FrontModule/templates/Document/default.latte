@@ -1,5 +1,13 @@
 {* Latte template *}
 
+
 {block content}
 
+<H2>Seznam dokladů ze spoolu č. {$id_spool}</H2>
+
 {control documentDatagrid}
+
+<div>
+	{var $args = array('id_spool' => $id_spool, 'id_company' => $id_company)} 
+	<a href="{plink StatusDetail:default, (expand) $args}" class="btn btn-primary">Zpět na detail spoolu</a>	
+</div>

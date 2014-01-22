@@ -1,4 +1,5 @@
 <?php
+
 namespace Model\Repository;
 
 use Model;
@@ -10,9 +11,8 @@ use Model;
  * @entity StatusEntity
  * 
  */
+class StatusRepository extends ARepository {
 
-class StatusRepository extends ARepository
-{
 	public function findByCompany($company_id) {
 		$row = $this->connection->select('*')
 				->from($this->getTable())
@@ -21,4 +21,18 @@ class StatusRepository extends ARepository
 
 		return $this->createEntities($row);
 	}
+
+	public function findByCompanyAndSpool($company_id, $spool_id) {
+		$row = $this->connection->select('*')
+				->from($this->getTable())
+				->where('ID_COMPANY = %i', $company_id)
+				->where('ID_SPOOL = %i', $spool_id)
+				->fetch();
+
+		if ($row === false) {
+			throw new \Exception('Entity was not found.');
+		}
+		return $this->createEntity($row);
+	}
+
 }

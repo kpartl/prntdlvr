@@ -51,4 +51,4 @@ parameters:
 		#host: localhost		
 		#username: trans
 		#password: trans
-		#profiler: false
+		profiler: false
