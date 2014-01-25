@@ -17,6 +17,24 @@
 </td>
 {/define}
 
+{define col-dateProcess}
+<td>
+	{$row->dateProcess|date:'d.m.Y H:i:s'}
+</td>
+{/define}
+
+{define col-datePrint}
+<td>
+	{$row->datePrint|date:'d.m.Y H:i:s'}
+</td>
+{/define}
+
+{define col-dateOut}
+<td>
+	{$row->dateOut|date:'d.m.Y H:i:s'}
+</td>
+{/define}
+
 {define col-docType}
 <td>
 	{ifset $row->docType}
@@ -25,3 +43,25 @@
 </td>
 {/define}
 
+{define col-statusType}
+<td>
+	{ifset $row->statusType}
+		{$row->statusType->name}
+	{/ifset}
+</td>
+{/define}
+
+{define col-operator}
+<td>
+	{ifset $row->operator}
+		{$row->operator->name}
+	{/ifset}
+</td>
+{/define}
+
+
+{*
+{define row-actions}
+	<a href="{link edit! $primary}" data-datagrid-edit class="ajax btn btn-primary">xxnjc</a>
+{/define}
+*}

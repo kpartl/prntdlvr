@@ -33,13 +33,16 @@ services:
 	- Model\Repository\CompanyRepository 
 	- Model\Repository\UserRepository 
 	- Model\Repository\StatusRepository 
+	- Model\Repository\StatusTypeRepository 
 	- Model\Repository\DocTypeRepository 
 	- Model\Repository\DocumentRepository 
+	- Model\Repository\OperatorRepository 
+	- Model\Repository\DistChannelRepository 
 
 #production < common:
 parameters:
 	database:
-		driver: mssql2005
+		driver: mssql2005	#POZOR! tento driver (DibiMsSql2005Driver.php) jsem musel pozmenit, aby vracel datetime ve jinem tvaru
 		database: trans 
 		host: HP10036276\SQLEXPRESS
 		#host: HP20002369\SQLEXPRESS

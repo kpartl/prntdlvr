@@ -1,23 +1,23 @@
-<?php //netteCache[01]000368a:2:{s:4:"time";s:21:"0.81814900 1390261121";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:54:"C:\projects\NetBeans\trans\app\templates\@layout.latte";i:2;i:1390261117;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000368a:2:{s:4:"time";s:21:"0.36527600 1390831041";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:54:"C:\projects\NetBeans\trans\app\templates\@layout.latte";i:2;i:1390830486;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\projects\NetBeans\trans\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'i4oejfwiz4')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'xcwou7d573')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbe84624437b_title')) { function _lbe84624437b_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lb47f053737b_title')) { function _lb47f053737b_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>Nette Application Skeleton<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbef4783d447_head')) { function _lbef4783d447_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lb0a58a06e38_head')) { function _lb0a58a06e38_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
@@ -61,15 +61,17 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
         <link rel="shortcut icon" href="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/favicon.ico">
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/jquery.js"></script>
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/netteForms.js"></script>
-		
+
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/bootstrap.min.js"></script>
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/main.js"></script>
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/nette.ajax.js"></script>
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/nextras.datagrid.js"></script>
-		<script>$(function() {
+
+		<!--	<script>$(function() {
 				$.nette.init();
-			});</script>
-        <?php call_user_func(reset($_l->blocks['head']), $_l, get_defined_vars())  ?>
+					});</script>-->
+
+			<?php call_user_func(reset($_l->blocks['head']), $_l, get_defined_vars())  ?>
 
     </head>
 

@@ -246,11 +246,13 @@ abstract class Repository
 	 */
 	protected function createEntities(array $rows, $entityClass = null, $table = null)
 	{
+		
 		if ($table === null) {
 			$table = $this->getTable();
 		}
 		$entities = array();
 		$collection = Result::getInstance($rows, $table, $this->connection, $this->mapper);
+		
 		$primaryKey = $this->mapper->getPrimaryKey($this->getTable());
 		if ($entityClass !== null) {
 			foreach ($rows as $dibiRow) {
@@ -263,6 +265,7 @@ abstract class Repository
 				$entities[$dibiRow->$primaryKey] = new $entityClass($row);
 			}
 		}
+		
 		return $this->createCollection($entities);
 	}
 

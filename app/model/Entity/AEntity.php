@@ -5,6 +5,7 @@ namespace Model\Entity;
 use LeanMapper;
 use LeanMapper\Relationship\HasMany;
 use Nette\Forms\Form;
+use Nette\Forms\Container;
 
 /**
  * Class AEntity
@@ -12,10 +13,10 @@ use Nette\Forms\Form;
  */
 abstract class AEntity extends LeanMapper\Entity {
 
-	public function setFormDefaults(Form $form) {
+	public function setFormDefaults(Container $form) {
 		foreach ($this->getCurrentReflection()->getEntityProperties() as $property) {
-			$name = $property->getName();
-			if (isset($form[$name])) {
+			$name = $property->getName();		
+			if (isset($form[$name])) {					
 				if ($property->getColumn() !== null) {
 					$form[$name]->setDefaultValue($this->row->{$property->getColumn()});
 				} else {
@@ -35,5 +36,6 @@ abstract class AEntity extends LeanMapper\Entity {
 			}
 		}
 	}
+		
 
 } 

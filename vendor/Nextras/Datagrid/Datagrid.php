@@ -312,9 +312,12 @@ class Datagrid extends UI\Control
 
 	protected function getData($key = NULL)
 	{
+		
 		if (!$this->data) {
 			$onlyRow = $key && $this->presenter->isAjax();
+			
 			if (!$onlyRow && $this->paginator) {
+			
 				$itemsCount = $this->paginatorItemsCountCallback->invokeArgs(array(
 					$this->filter,
 					$this->orderColumn ? array($this->orderColumn, strtoupper($this->orderType)) : NULL,
@@ -337,7 +340,8 @@ class Datagrid extends UI\Control
 			return $this->data;
 		}
 
-		foreach ($this->data as $row) {
+		
+		foreach ($this->data as $row) {			
 			if ($this->getter($row, $this->rowPrimaryKey) == $key) {
 				return $row;
 			}
@@ -400,6 +404,7 @@ class Datagrid extends UI\Control
 		$form = new UI\Form;
 
 		if ($this->editFormFactory && ($this->editRowKey || !empty($_POST['edit']))) {
+			
 			$data = $this->editRowKey && empty($_POST) ? $this->getData($this->editRowKey) : NULL;
 			$form['edit'] = Callback::create($this->editFormFactory)->invokeArgs(array($data));
 

@@ -2,35 +2,63 @@
 
 {block content}
 
-<H2>Doklad číslo <B>{$documentEntity->spoolEnvelop}</B> ze spoolu číslo <B>{$documentEntity->id_spool}</B></H2>
+<script>
+	$(document).ready(function() {
+	$('#frm-noticeForm-noticeChangeButton').click(function() {
 
-<table class="table table-bordered table-condensed table-striped">
+					$('#frm-noticeForm-noticeInput').prop('disabled', false);
+								$('#frm-noticeForm-noticeChangeButton').hide();
+								$('#frm-noticeForm-submittButton').show();
+								$('#frm-noticeForm-cancelButton').show();
+							});
+						});
+</script>
 
-	<tr>		
-		<td>Typ dokladu</td>
-		<td>{$documentEntity->docType->name}</td>
-	</tr>
-	<tr><td>Číslo zákazníka</td><td>{$documentEntity->custommerNumber}</td></tr>
-	<tr><td>Zákazník</td><td>{$documentEntity->custommerName}</td></tr>
-	<tr><td>Zasílací adresa</td><td>{$documentEntity->custommerAddr}</td></tr>
-	<tr><td>Typ dokladu</td><td>{$documentEntity->docType->name}</td></tr>
-	<tr><td>Číslo dokladu</td><td>{$documentEntity->docNumber}</td></tr>
-	<tr><td>Počet stran</td><td>{$documentEntity->docPages}</td></tr>
-	<tr><td>Přijato</td><td>{$documentEntity->dateIn|date:'d.m.Y H:i:s'}</td></tr>
-	<tr><td>Zpracováno</td><td>{$documentEntity->dateProcess|date:'d.m.Y H:i:s'}</td></tr>
-	<tr><td>Vytištěno</td><td>{$documentEntity->datePrint|date:'d.m.Y H:i:s'}</td></tr>
-	<tr><td>Odesláno</td><td>{$documentEntity->dateOut|date:'d.m.Y H:i:s'}</td></tr>
-	<tr><td>Poštovní opeátor</td><td>{$documentEntity->operator->name}</td></tr>
-	<tr><td>Kanál odeslání</td><td>{$documentEntity->distChannel->name}</td></tr>
-	<tr><td>Email</td><td>{$documentEntity->custEmail}</td></tr>
-	<tr><td></td><td></td></tr>
-	<tr><td>Link na archiv</td><td><a href="{$documentEntity->archiveLink}">odkaz</a></td></tr>
-	<tr><td>Volba produkčního dotisku</td><td>{$documentEntity->reprint}</td></tr>
-	<tr><td></td><td></td></tr>
-	<tr><td>Poznámka</td><td>{$documentEntity->docNote}</td></tr>	
-</table>
+
+
+<!--<H2>Doklad číslo <B>{$documentEntity->spoolEnvelop}</B> ze spoolu číslo <B>{$documentEntity->id_spool}</B></H2>-->
+
+
+{form noticeForm}
+	<table class="table  table-condensed table-striped">
+
+		<tr><td>Číslo zákazníka</td><td>{$documentEntity->custommerNumber}</td></tr>
+		<tr><td>Zákazník</td><td>{$documentEntity->custommerName}</td></tr>
+		<tr><td>Zasílací adresa</td><td>{$documentEntity->custommerAddr}</td></tr>
+		<tr><td>Typ dokladu</td><td>{$documentEntity->docType->name}</td></tr>
+		<tr><td>Číslo dokladu</td><td>{$documentEntity->docNumber}</td></tr>
+		<tr><td>Počet stran</td><td>{$documentEntity->docPages}</td></tr>
+		<tr><td>Přijato</td><td>{$documentEntity->dateIn|date:'d.m.Y H:i:s'}</td></tr>
+		<tr><td>Zpracováno</td><td>{$documentEntity->dateProcess|date:'d.m.Y H:i:s'}</td></tr>
+		<tr><td>Vytištěno</td><td>{$documentEntity->datePrint|date:'d.m.Y H:i:s'}</td></tr>
+		<tr><td>Odesláno</td><td>{$documentEntity->dateOut|date:'d.m.Y H:i:s'}</td></tr>
+		<tr><td>Poštovní opeátor</td><td>{$documentEntity->operator->name}</td></tr>
+		<tr><td>Kanál odeslání</td><td>{$documentEntity->distChannel->name}</td></tr>
+		<tr><td>Email</td><td>{$documentEntity->custEmail}</td></tr>
+		<tr><td></td><td></td></tr>
+		<tr><td>Link na archiv</td><td><a href="{$documentEntity->archiveLink}">odkaz</a></td></tr>
+		<tr><td>Volba produkčního dotisku</td><td>{$documentEntity->reprint}</td></tr>
+		<tr><td></td><td></td></tr>
+
+		<tr><td>Poznámka</td>
+			<td>{input noticeInput value=>$documentEntity->docNote, disabled=>'disabled'}
+
+				{input noticeChangeButton value=>'editovat'}
+				{input submittButton value=>'OK', style=>'display:none;'}
+				{input cancelButton value=>'Zrušit',style=>'display:none;'}
+
+			</td>
+		</tr>	
+
+
+	</table>
+
+{/form}
 <div>
 	{var $args = array('id_spool' => $documentEntity->id_spool, 'id_company' => $documentEntity->company->id)} 
 	<a href="{plink Document:default, (expand) $args}">Zpět na seznam dokladů</a>
 </div>
+
+
+
 

@@ -11,8 +11,7 @@ use Nette;
  */
 class DocumentPresenter extends BasePresenter {
 
-	/** @var \Model\Repository\DocumentRepository @inject */
-	public $documentRepository;
+	
 
 	/** @persistent */
 	public $company_id;
@@ -33,25 +32,37 @@ class DocumentPresenter extends BasePresenter {
 	public function createComponentDocumentDatagrid() {
 		$grid = new \Nextras\Datagrid\Datagrid;
 		//$grid->addColumn('id_spool', 'Id statusu')->enableSort();
-		$grid->addColumn('spoolEnvelop', 'Id dokladu');
-		$grid->addColumn('docNumber', 'Číslo dokladu');
-		$grid->addColumn('docType', 'Typ');
-		$grid->addColumn('custommerNumber', 'Číslo zákazníka');
+		$grid->addColumn('spoolEnvelop', 'Id dokladu')->enableSort();
+		$grid->addColumn('docNumber', 'Číslo dokladu')->enableSort();						
+		$grid->addColumn('docType', 'Typ')->enableSort();
+		$grid->addColumn('custommerNumber', 'Číslo zákazníka')->enableSort();
 		$grid->addColumn('docPages', 'Počet listů');
-		$grid->addColumn('distChannel', 'Kanál distribuce');
-		$grid->addColumn('operator', 'Operátor');
+		$grid->addColumn('operator', 'Operátor')->enableSort();
+		$grid->addColumn('distChannel', 'Kanál distribuce')->enableSort();
+		
+		//$grid->addColumn('dateIn', 'Datum')->enableSort();
 
 		//$grid->setRowPrimaryKey('id');
 
 		$grid->setDataSourceCallback($this->getDataSource);
-		//$grid->setPagination(10, $this->getDataSourceSum);
-//		$grid->setFilterFormFactory(function () {
-//			$form = new Nette\Forms\Container;
-//			$form->addText('id_spool')->setAttribute('class', 'col-xs-2');
-//			//	$form->addText('date_in');			
-//
-//			return $form;
-//		});
+		$grid->setPagination($this->settings['dataSourceLimit'], $this->getDataSourceSum);
+		$grid->setFilterFormFactory(function () {
+			//$form = new \Nella\Forms\Container;
+			$form = new \Nette\Forms\Container;
+			//$form->addText('spoolEnvelop');
+			//$form->addText('docNumber');
+
+			$form->addSelect('docType', 'nazevTypu', $this->getCiselnik($this->docTypeRepository))->setPrompt(" ");
+			$form->addSelect('distChannel', 'nazevTypu', $this->getCiselnik($this->distChannelRepository))->setPrompt(" ");
+			$form->addSelect('operator', 'operator', $this->getCiselnik($this->operatorRepository))->setPrompt(" ");
+			//\Nella\Forms\Controls\DateTime::$format='d.m.Y';
+			//$form->addText('dateIn');
+//			$c = $form->addContainer('dateIn');
+//			$c->addDateTime('from');
+//			$c->addDateTime('to');
+
+			return $form;
+		});
 
 
 		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.datagrid.latte');
@@ -63,22 +74,41 @@ class DocumentPresenter extends BasePresenter {
 	/**
 	 * @param $filter
 	 * @param $order
-	 * @return Nette\Database\Table\Selection
+	 * @param $paginator = null
+	 * @return 
 	 */
-	public function prepareDataSource($filter, $order) {
-		$filters = array();
-		foreach ($filter as $k => $v) {
-			if (is_array($v))
-				$filters[$k] = $v;
-			else
-				$filters[$k . ' LIKE ?'] = "%$v%";
-		}
-		$selection = $this->documentRepository->findByCompanyAndSpool($this->company_id, $this->spool_id);
-		if ($order) {
-			$selection->order(implode(' ', $order));
-		}
+	public function prepareDataSource($filter, $order, $paginator = NULL) {
+//		$storedParams = null;
+//
+//		$where = $this->processFilter($filter); //zpracujeme podminku WHERE
+//
+//		if ($paginator) {
+//			$storedParams = array('pageSize' => $paginator->getItemsPerPage(), 'offset' => $paginator->getOffset());
+//		}
+//
+//		if (count($where) > 0)
+//			$storedParams['where'] = $where;
+//
+//		if ($order) {
+//			$storedParams['orderBy'] = $this->getColumName($order[0]);
+//			$storedParams['ascOrDesc'] = $order[1];
+//		}
+		$storedParams= $this->prepareParams($filter, $order, $paginator);
+		try {
 
-		return $selection;
+			$selection = $this->documentRepository->findByCompanyAndSpool($this->company_id, $this->spool_id, $storedParams);
+
+			return $selection;
+		} catch (\Exception $exc) {
+			//echo $exc->getTraceAsSring();
+			$this->flashMessage('Odchycena vyjimka'); //stejne to nefunguje, Ajax to utlumi
+		}
+	}
+
+	
+
+	public function getColumName($propertyName) {
+		return($this->mapper->getColumn('\Model\Entity\Document', $propertyName));
 	}
 
 }

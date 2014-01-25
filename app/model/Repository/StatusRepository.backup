@@ -13,17 +13,45 @@ use Model;
  */
 class StatusRepository extends ARepository {
 
-	public function findByCompany($company_id, array $storedProcParams = NULL) {		
-		if (!isSet($company_id))
-			return array();
+//	public function findByCompany($company_id) {
+//		$row = $this->connection->select('*')
+//				->from($this->getTable())
+//				->where('ID_COMPANY = %i', $company_id)
+//				->fetchAll();
+//
+//		return $this->createEntities($row);
+//	}
+
+	public function findByCompanyAndSpool($company_id, $spool_id) {
+		$row = $this->connection->select('*')
+				->from($this->getTable())
+				->where('ID_COMPANY = %i', $company_id)
+				->where('ID_SPOOL = %i', $spool_id)
+				->fetch();
+
+		if ($row === false) {
+			throw new \Exception('Entity was not found.');
+		}
+		return $this->createEntity($row);
+	}
+	
+	
+	public function findByCompany($company_id, array $storedProcParams = NULL) {
 
 		if ((!$storedProcParams) or (!isSet($storedProcParams['pageSize']))) {
+
 			$row = $this->connection->select('*')
 					->from($this->getTable())
-					->where('ID_COMPANY = %i', $company_id);
-			$row = $this->prepareSelectParams($row, $storedProcParams)->fetchAll();
+					->where('ID_COMPANY = %i ', $company_id);
+								
+			if($storedProcParams) $row = $this->prepareSelectParams($row, $storedProcParams);
+			$row = $row->fetchAll();
+			
 		} else {
-			$where = " ID_COMPANY = $company_id  ";
+			$where = " ID_COMPANY = $company_id ";
+			
+			$command = $this->prepareStoredProcParams($where, $storedProcParams);
+
 //			$orderBy = null;
 //			$ascOrDesc = null;
 //
@@ -37,7 +65,7 @@ class StatusRepository extends ARepository {
 //					$ascOrDesc = $storedProcParams['ascOrDesc'];
 //			}
 //
-//			
+//			$where = " ID_COMPANY = $company_id AND ID_SPOOL = $spool_id ";
 //
 //			if (isSet($storedProcParams['where'])) {
 //				foreach ($storedProcParams['where'] as $k => $v) {
@@ -47,7 +75,7 @@ class StatusRepository extends ARepository {
 //				}
 //			}
 //
-//			$command = "EXEC  [dbo].[PaginateTable] @TableName='[dbo].[TPP_STATUS]', @PageSize= $pageSize, @CurrentPageIndex= $offset ";
+//			$command = "EXEC  [dbo].[PaginateTable] @TableName='[dbo].[TPP_DOCUMENT]', @PageSize= $pageSize, @CurrentPageIndex= $offset ";
 //
 //			//$where =" ' DOC_CUST_DOC_ID > 3 ' ";
 //			if ($where)
@@ -60,29 +88,15 @@ class StatusRepository extends ARepository {
 //			if ($ascOrDesc) {
 //				$command = $command . ", @AscOrDesc= '$ascOrDesc' ";
 //			}
-//echo($command);
-			//	$row = $this->connection->query($command)->fetchAll();
-			$row = $this->connection->query($this->prepareStoredProcParams($where, $storedProcParams))->fetchAll();
+
+			$row = $this->connection->query($command)->fetchAll();
 		}
 
 		if ($row and count($row) > 0) {
 			return $this->createEntities($row);
 		} else {
-			return array();
+			throw new \Exception('Entita nenalezena');
 		}
-	}
-
-	public function findByCompanyAndSpool($company_id, $spool_id) {
-		$row = $this->connection->select('*')
-				->from($this->getTable())
-				->where('ID_COMPANY = %i', $company_id)
-				->where('ID_SPOOL = %i', $spool_id)
-				->fetch();
-
-		if ($row === false) {
-			throw new \Exception('Entity was not found.');
-		}
-		return $this->createEntity($row);
 	}
 
 }

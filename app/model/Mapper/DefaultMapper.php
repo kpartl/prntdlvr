@@ -45,7 +45,7 @@ class DefaultMapper implements LeanMapper\IMapper {
 	 * @param LeanMapper\Row|null $row
 	 * @return string
 	 */
-	public function getEntityClass($table, LeanMapper\Row $row = null) {			
+	public function getEntityClass($table, LeanMapper\Row $row = null) {
 		return ($this->defaultEntityNamespace !== null ? $this->defaultEntityNamespace . '\\' : '') . ucfirst(str_replace('_', '', str_replace('TPP_', '', $table)));
 	}
 
@@ -57,7 +57,62 @@ class DefaultMapper implements LeanMapper\IMapper {
 	 * @return string
 	 */
 	public function getColumn($entityClass, $field) {
-		return $field;
+		$class = new $entityClass;		
+		$refl = $class::getReflection();	
+		return $refl->getEntityProperty($field)->getColumn();
+		
+		
+		
+//		$className =  $entityClass;
+//		$class =		new \Nette\Reflection\ClassType($className);
+//		
+//		$refl =$class->getReflection();
+//		$prop = $refl->getEntityProperty($field);
+//		dump($prop);
+//		if($prop)echo($prop->getColumn());
+//		switch ($entityClass) {
+//			case 'DocumentEntity':
+//
+//				switch ($field) {
+//					case 'docNumber': return "[DOC_CUST_DOC_ID]";
+//						break;
+//					case 'docType': return "[ID_DOC_TYPE]";
+//						break;
+//					case 'distChannel': return "[DOC_DIST_CHANNEL]";
+//						break;
+//					case 'custommerNumber': return "[DOC_ID_CUSTOMMER]";
+//						break;
+//					case 'operator': return "[ID_OPERATOR]";
+//						break;
+//					case 'dateIn': return "[ID_DATE_IN]";
+//						break;
+//				}
+//				break;
+//			case 'StatusEntity':
+//				switch ($field) {
+//					case 'dateOut': return "[ID_DATE_OUT]";
+//						break;
+//					case 'dateIn': return "[ID_DATE_IN]";
+//						break;
+//					case 'docType': return "[ID_DOC_TYPE]";
+//						break;
+//					case 'statusType': return "[ID_STATUS_DOC]";
+//						break;
+//					case 'statusType': return "[ID_STATUS_DOC]";
+//						break;
+//					case 'statusType': return "[ID_STATUS_DOC]";
+//						break;
+//					case 'statusType': return "[ID_STATUS_DOC]";
+//						break;
+//					case 'statusType': return "[ID_STATUS_DOC]";
+//						break;
+//					case 'statusType': return "[ID_STATUS_DOC]";
+//						break;
+//				}
+//				
+//				break;
+//		}
+//		return $field;
 	}
 
 	/**
@@ -68,7 +123,14 @@ class DefaultMapper implements LeanMapper\IMapper {
 	 * @return string
 	 */
 	public function getEntityField($table, $column) {
-		return $column;
+		$class = $this->getEntityClass($table);		
+		$refl = $class::getReflection();
+		foreach ($refl->getEntityProperties() as $prop){
+			if($prop->getColumn() == $column){			
+				return $prop->getName();
+			}
+		}
+		
 	}
 
 	/**

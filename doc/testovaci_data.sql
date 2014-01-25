@@ -45,3 +45,9 @@ VALUES(
 ,1,1,'cust'+@count_s + '@email.com','..\..\doc1.pdf',1,'note 1')
 SET @count = (@count + 1) 
 END 
+
+update [tpp_document] SET [ID_OPERATOR]= 2, [DOC_DIST_CHANNEL]=2  WHERE id between 10 and 30
+update [tpp_document] SET [ID_DATE_IN]='14/01/14'  WHERE id between 7 and 15
+update [tpp_document] SET [ID_DOC_TYPE]=2  WHERE id between 15 and 25
+update [tpp_document] SET [ID_DOC_TYPE]=3  WHERE id between 26 and 40
+update [tpp_document] SET [ID_DOC_TYPE]=4  WHERE id between 41 and 50
