@@ -1,0 +1,142 @@
+<?php
+
+namespace App\FrontModule;
+
+use Model;
+use Nette;
+
+/**
+ * Class StatusPresenter
+ * @package App\FrontModule
+ */
+class StatusPresenter extends BasePresenter {
+
+	/** @var \Model\Repository\CompanyRepository @inject */
+	public $companyRepository;
+
+	/** @var \Model\Repository\UserRepository @inject */
+	public $userRepository;
+
+	/** @var \Model\Repository\StatusRepository @inject */
+	public $statusRepository;
+
+	/** @persistent */
+	public $company_id;
+
+	public function renderDefault($company = NULL) {
+//		if ((!$this->getCompanyId()) and $this->getSession()->getSection('StatusPresenter')->companyId) {
+//			echo ("  S E S S I O N ");
+//			$this->company_id = $this->getSession()->getSection('StatusPresenter')->companyId;
+//			$this['companiesForm']['company']->setValue($this->company_id);
+//		}
+
+		$ci = $this->getCompanyId();
+		$ci2 = $this->company_id;
+		echo("Zavolan renderDefault s companyId = $company pricemz getCOmpanyId je $ci) a this->company_id je $ci2");
+		$this->company_id = $company;
+		$tmp = array('company' => $this->company_id);
+
+		$this['companiesForm']->setDefaults($tmp); //z neznamyho duvodu to musim delat pres promennou, jinak to nefunguje		
+	}
+
+	public function createComponentCompaniesForm() {
+		$form = new Nette\Application\UI\Form;
+
+		//TODO predelat na prihlasenyho uzivatele
+		$user = $this->userRepository->find(1);
+
+		//schovame si to pro vyber 1. spolecnosti
+		//$this->company_id = -1;
+
+		foreach ($user->companies as $company) {
+			$companyNames[$company->id] = $company->name;
+			if ($this->company_id = null)
+				$this->company_id = $company->id;  //nastavim vyber selectBoxu na 1. spolecnost
+		}
+
+		$select = $form->addSelect('company', 'Společnost', $companyNames)
+				->setPrompt("Vyberte společnost");
+
+		$form->addSubmit('change', 'changeButton')->setAttribute('class', 'ajax hide');
+
+		$form->onSuccess[] = $this->companiesFormSucceeded;
+
+		return $form;
+	}
+
+	public function companiesFormSucceeded($form) {
+		$this->company_id = $form->values->company;
+		$this->template->company_id = $form->values->company;
+		$this->getSession()->getSection('StatusPresenter')->companyId = $form->values->company;
+		$this['statusDatagrid']->invalidateControl();
+	}
+
+	/**
+	 * @return \Nextras\Datagrid\Datagrid
+	 */
+	public function createComponentStatusDatagrid() {
+		$grid = new \Nextras\Datagrid\Datagrid;
+		$grid->addColumn('id_spool', 'Id')->enableSort();
+		//$grid->addColumn('id_company');
+		$grid->addColumn('dateIn', 'Datum přijetí')->enableSort();
+		$grid->addColumn('docType', 'Typ dokladu')->enableSort();
+		$grid->addColumn('totalAmountPages', 'Celkem stran');
+
+		$grid->setRowPrimaryKey('id');
+
+		$grid->setDataSourceCallback($this->getDataSource);
+		$grid->setPagination($this->settings['dataSourceLimit'], $this->getDataSourceSum);
+
+		$grid->setFilterFormFactory(function () {
+			$form = new Nette\Forms\Container;
+			$form->addText('id_spool'); //->setAttribute('class', 'col-xs-2');
+			$form->addSelect('docType', 'nazevTypu', $this->getCiselnik($this->docTypeRepository));
+			$form->addText('dateIn');
+
+			return $form;
+		});
+
+		//$grid->addCellsTemplate(__DIR__ . '/../../templates/defaultDatagrid.latte');
+		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.datagrid.latte');
+		//$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.extended-pagination.datagrid.latte');
+		$grid->addCellsTemplate(__DIR__ . '/../templates/Status/statusDatagrid.latte');
+
+		return $grid;
+	}
+
+	/**
+	 * @param $filter
+	 * @param $order
+	 * @return Nette\Database\Table\Selection
+	 */
+	public function prepareDataSource($filter, $order, $paginator = NULL) {
+		$storedParams = $this->prepareParams($filter, $order, $paginator);
+
+		try {
+			echo("pred selectem je getCompanyId = $this->getCompanyId()" );
+			dump($storedParams);
+			$selection = $this->statusRepository->findByCompany($this->getCompanyId(), $storedParams);
+			echo("po selectu");
+			dump($selection);
+			echo("po dump selection");
+			return $selection;
+		} catch (\Exception $exc) {
+			//echo $exc->getTraceAsSring();
+			$this->flashMessage('Odchycena vyjimka'); //stejne to nefunguje, Ajax to utlumi
+		}
+	}
+
+	private function getCompanyId() {
+		$companyId = $this['companiesForm']['company']->getValue();
+		echo"v getCOmpanyId " . ($this['companiesForm']['company']->getValue() . " ---- ");
+		if ($companyId)
+			return $companyId;
+		else
+			return $this->getParameter('company') ? $this->getParameter('company') : null;
+	}
+
+	public function getColumName($propertyName) {
+		return($this->mapper->getColumn('StatusEntity', $propertyName));
+	}
+
+}

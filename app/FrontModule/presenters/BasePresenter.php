@@ -32,6 +32,19 @@ abstract class BasePresenter extends \Base\BaseBasePresenter {
 
 	public function startup() {
 		parent::startup();
+		if (!$this->user->isLoggedIn()) {
+			if ($this->user->getLogoutReason() === Nette\Security\User::INACTIVITY) {
+				$this->flashMessage('Byl/a jste odhlášen/a kvůli neaktivitě.', 'alert-error');
+			}
+			
+			$this->redirect(':Auth:Sign:in', array('backlink' => $this->storeRequest()));
+		} else {
+//			if (!$this->user->isAllowed($this->name, $this->action)) {
+//				$this->flashMessage('Přístup zamítnut!', 'alert-error');
+//				//$this->redirect(':Auth:Sign:in');
+//			}
+			//$this->redirect(':Front:Status:default');
+		}
 	}
 
 	public function beforeRender() {

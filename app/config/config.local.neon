@@ -1,10 +1,2 @@
 parameters:
 
-#nette:
-#	database:
-		#dsn: 'sqlsrv:server=HP20002369\SQLEXPRESS;database=trans'
-		
-#		dsn: 'sqlsrv:server=HP10036276\SQLEXPRESS;database=trans'
-#		user: trans
-#		password: trans
-		

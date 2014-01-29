@@ -1,6 +1,6 @@
 {define col-id_spool}
 <td>
-	 {var $args = array('id_spool' => $row->id_spool, 'id_company' => $row->company->id)} 
+	 {var $args = array('id_spool' => $row->id_spool)} 
 	
 	<a href="{plink StatusDetail:default, (expand) $args}"> 
 	 {*<a href="{plink StatusDetail:default, $row->id}">*}

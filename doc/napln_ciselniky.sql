@@ -28,4 +28,6 @@ INSERT INTO TPP_OPERATOR (ID,NAME) VALUES (2, 'MDS');
 INSERT INTO TPP_OPERATOR (ID,NAME) VALUES (3, 'ELE');
 
 
-INSERT INTO TPP_USER ([USERNAME], [PASSWORD], [ROLE]) VALUES ('admin',' ',1);
+INSERT INTO TPP_USER ([USERNAME], [PASSWORD], [ROLE]) VALUES ('admin',' $v3.dy73f6hI',1);
+insert into tpp_user ([username],[password],[role]) values ('operator', '$2a$07$u8hfouwm3hdftsm3gp4aeuRcsIs8n4r4C4cWDsfithCCPoaso4Uzq',2);
+insert into tpp_user ([username],[password],[role]) values ('guest', '$2a$07$p4e5x3cp1mmn9kkfbv5caul7Q70pCFrSopWS48DIfHvXoXhVIH6ku',3);

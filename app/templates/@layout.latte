@@ -1,24 +1,23 @@
 {**
- * My Application layout template.
- *
- * @param string   $basePath web base path
- * @param string   $robots   tell robots how to index the content of a page (optional)
- * @param array    $flashes  flash messages
+* My Application layout template.
+*
+* @param string   $basePath web base path 
+* @param array    $flashes  flash messages
 *}
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="">
-        <meta name="robots" content="{$robots}" n:ifset="$robots">
+        <meta name="description" content="">        
 
         <title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
 
-		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">        
-		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">		
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap3.nextras.datagrid.css">
+		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">        
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 
 
         <link rel="shortcut icon" href="{$basePath}/favicon.ico">
@@ -35,17 +34,19 @@
 				$.nette.init();
 					});</script>-->
 
-			{block head}{/block}
+		{block head}{/block}
     </head>
 
     <body>	
         <script> document.documentElement.className += ' js'</script>
 
-        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+       
 
-        <div class="container" id="content">
-            {include #content}
-        </div>
+		</div>
+		<div class="container" id="content">
+			{include #content}
+		</div>
+
 
     </body>
 </html>

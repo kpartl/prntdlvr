@@ -11,15 +11,16 @@ php:
 
 nette:
 	application:
-		errorPresenter: Error
+		errorPresenter: Front:Error
 		mapping:
 			*: App\*Module\*Presenter
 
+	container:
+		debugger: TRUE
+		accessors: TRUE 
 	session:
 		expiration: 14 days
-	security:
-		users:
-			admin: secret  # user 'admin', password 'secret'
+	
 
 
 services:
@@ -37,7 +38,21 @@ services:
 	- Model\Repository\DocTypeRepository 
 	- Model\Repository\DocumentRepository 
 	- Model\Repository\OperatorRepository 
-	- Model\Repository\DistChannelRepository 
+	- Model\Repository\DistChannelRepository
+	authenticator: Model\Authenticator	
+	authorizator:
+		class: Nette\Security\Permission
+		setup:
+			- addRole('viewer')
+			- addRole('operator', 'viewer') 
+			- addRole('admin', 'operator') 
+
+			- addResource('Front:DocumentDetail') 
+			- addResource('Front:Status') 
+			
+			- allow('operator', 'Front:DocumentDetail', 'edit')
+			- allow('operator', 'Front:Status', 'edit')
+			- allow('admin') 
 
 #production < common:
 parameters:

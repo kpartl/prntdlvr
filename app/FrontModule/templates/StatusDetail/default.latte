@@ -1,6 +1,9 @@
 {* Latte template *}
 
 {block content}
+{include '../base.latte'}
+
+<h2>Detail spoolu</h2>
 
 <table class="table table-bordered table-condensed table-striped">
 	<tr>
@@ -29,10 +32,14 @@
 	<tr><td></td><td>Počet elektronických dokumentů</td><td>{$statusEntity->totalEleDoc}</td></tr>
 	<tr><td></td><td>Poštovné celkem</td><td>{$statusEntity->totalPostFee}</td></tr>	
 </table>
-<div>
-	{var $args = array('id_spool' => $statusEntity->id_spool, 'id_company' => $statusEntity->company->id)} 
-	<a href="{plink Document:default, (expand) $args}">Seznam dokladů</a>
-</div>
-<div>	
-	<a href="{plink Status:default}">Zpět na seznam</a>
+<div class="row">
+	<div class="col-md-2">	
+		<a href="{plink Status:default}" class="btn btn-primary">Zpět na seznam spoolů</a>
+	</div>
+	<div class="col-md-4">
+		{*var $args = array('id_spool' => $statusEntity->id_spool, 'id_company' => $statusEntity->company->id)*} 
+		<a href="{plink Document:default}" class="btn btn-primary" >Seznam dokladů</a>
+
+	</div>
+
 </div>

@@ -1,4 +1,5 @@
 <?php
+
 namespace Model\Repository;
 
 use Model;
@@ -10,7 +11,18 @@ use Model;
  * @entity UserEntity
  * 
  */
+class UserRepository extends ARepository {
 
-class UserRepository extends ARepository
-{
+	public function findByUsername($username) {
+		$row = $this->connection->select('*')
+				->from($this->getTable())
+				->where('username = %s', $username)
+				->fetch();
+
+		if ($row === false) {
+			return null;
+		} else
+			return $this->createEntity($row);
+	}
+
 }

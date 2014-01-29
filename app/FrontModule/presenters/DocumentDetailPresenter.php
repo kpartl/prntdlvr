@@ -18,7 +18,7 @@ class DocumentDetailPresenter extends BasePresenter {
 	public function renderDefault($id) {
 		$entity = $this->documentRepository->find($id);
 		$this->entity = $entity;
-		$this->template->documentEntity = $entity;
+		$this->template->documentEntity = $entity;		
 	}
 
 	public function createComponentNoticeForm() {

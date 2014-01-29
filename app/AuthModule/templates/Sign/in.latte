@@ -1,0 +1,11 @@
+{extends '..\..\..\templates\@layout.latte'}
+{block content}
+
+<h1 n:block=title>Přihlášení</h1>
+
+<div class="row-fluid">
+	<div class="span5">
+		{*{include '../../../templates/form.latte', form => $presenter[signInForm]}*}
+		{control signInForm}
+	</div>
+</div>

@@ -1,34 +1,70 @@
-body {
-        font: 16px/1.5 Georgia, Verdana, Arial;
-        margin: 0 auto;
-        width: 600px;
-        color: #333;
-        background-color: #fff;
+/*body {
+	font: 14px/1.5 Arial, Georgia, Verdana ;
+	margin: 0 auto;
+	width: 1000;
+	color: #333;
+	background-color: #fff;
+}*/
+
+h1, h2 {
+	color: #3484D2;
+
 }
 
+.nav>li>a {
+	display: inline;
+}
+
+.container{
+	max-width: 2100px;
+}
+
+
 #ajax-spinner {
-        margin: 15px 0 0 15px;
-        padding: 13px;
-        background: white url('../images/spinner.gif') no-repeat 50% 50%;
-        font-size: 0;
-        z-index: 123456;
-        display: none;
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+.bigContainer {
+	max-width: 2100px;
+}
+
+tr th label {
+	margin: 8px 8px 0 0;
+	font: 16px/1.5 Arial, Georgia, Verdana;
+	font-weight:bold
+}
+
+
+input[type="checkbox"]{
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+
+.margin8 {
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top:  8px;	
 }
 
 div.flash {
-        color: black;
-        background: #FFF9D7;
-        border: 1px solid #E2C822;
-        padding: 1em;
-        margin: 1em 0;
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
 }
 
 a[href^="error:"] {
-        background: red;
-        color: white;
+	background: red;
+	color: white;
 }
 
-form tr, form td {
+/*form tr, form td {
         vertical-align: top;
         font-weight: normal;
 }
@@ -109,4 +145,4 @@ h2 {
 
 .hide {
 	display: hidden;
-}
+}*/

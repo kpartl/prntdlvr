@@ -20,6 +20,8 @@ class DocumentPresenter extends BasePresenter {
 	public $spool_id;
 
 	public function renderDefault($id_spool, $id_company) {
+		$id_company = $this->getSession()->getSection("StatusPresenter")->company_id;
+		$id_spool = $this->getSession()->getSection("StatusPresenter")->spool_id;
 		$this->company_id = $id_company;
 		$this->spool_id = $id_spool;
 		$this->template->id_spool = $id_spool;

@@ -27,6 +27,8 @@ class StatusPresenter extends BasePresenter {
 	/** @persistent */
 	//public $company_id;
 
+
+
 	public function renderDefault() {
 
 		$tmp = array('company' => $this->getSession()->getSection("StatusPresenter")->company_id);
@@ -50,7 +52,7 @@ class StatusPresenter extends BasePresenter {
 		}
 
 		$select = $form->addSelect('company', 'Společnost', $companyNames)
-				->setPrompt("Vyberte společnost");
+						->setPrompt("Vyberte společnost")->setAttribute('class', 'margin8 nav navbar-nav navbar-left');
 
 		$form->addSubmit('change', 'changeButton')->setAttribute('class', 'ajax hide');
 
@@ -84,11 +86,11 @@ class StatusPresenter extends BasePresenter {
 		$grid->addColumn('totalAmountEnvelop', 'Počet zásilek')->enableSort();
 		$grid->addColumn('totalAmountBanner', 'Počet bannerů')->enableSort();
 		$grid->addColumn('totalAmountBW', 'Počet ČB stran')->enableSort();
-		$grid->addColumn('totalAmountColor', 'Počet barevných stran')->enableSort();
+		$grid->addColumn('totalAmountColor', 'Počet bar. stran')->enableSort();
 		$grid->addColumn('totalCoverSheet', 'Počet krycích listů')->enableSort();
 		$grid->addColumn('totalSheets', 'Počet listů celkem')->enableSort();
-		$grid->addColumn('totalAddressAd', 'Počet adresných příloh')->enableSort();
-		$grid->addColumn('totalNonAddressAd', 'Počet neadresných příloh')->enableSort();
+		$grid->addColumn('totalAddressAd', 'Počet adr. příloh')->enableSort();
+		$grid->addColumn('totalNonAddressAd', 'Počet neadr. příloh')->enableSort();
 		$grid->addColumn('totalEleDoc', 'Počet el. dokladů')->enableSort();
 		$grid->addColumn('totalSlip', 'Počet složenek')->enableSort();
 		$grid->addColumn('totalPostFee', 'Poštovné celkem')->enableSort();
@@ -104,36 +106,37 @@ class StatusPresenter extends BasePresenter {
 		$grid->setFilterFormFactory(function () {
 			//$form = new Nette\Forms\Container;
 			$form = new \Nella\Forms\Container;
-			$form->addText('id_spool'); //->setAttribute('class', 'col-xs-2');
+			//$form->addText('id_spool'); //->setAttribute('class', 'col-xs-2');
 			$form->addSelect('docType', 'nazevTypu', $this->getCiselnik($this->docTypeRepository))->setPrompt(" ");
 			$form->addSelect('statusType', 'statusType', $this->getCiselnik($this->statusTypeRepository))->setPrompt(" ");
-			$form->addDateTime('dateIn');
+			//$form->addDateTime('dateIn');
 
 
 			return $form;
 		});
+		if ($this->user->isAllowed('Front:Status', 'edit')) {
+			$grid->setEditFormFactory(function($row) {
+				//$form = new Nette\Forms\Container;
+				$form = new \Nella\Forms\Container;
+				\Nella\Forms\Controls\DateTime::$format = 'd.m.Y H:i:s';
+				$form->addDateTime('dateProcess');
+				$form->addDateTime('datePrint');
+				$form->addDateTime('dateOut');
+				//$form->addNumber('totalAmountPages');
 
-		$grid->setEditFormFactory(function($row) {
-			//$form = new Nette\Forms\Container;
-			$form = new \Nella\Forms\Container;
-			\Nella\Forms\Controls\DateTime::$format = 'd.m.Y H:i:s';
-			$form->addDateTime('dateProcess');
-			$form->addDateTime('datePrint');
-			$form->addDateTime('dateOut');
-			$form->addNumber('totalAmountPages');
+				$form->addSubmit('save', 'Uložit');
+				$form->addSubmit('cancel', 'Zrušit')->getControlPrototype()->class = 'btn';
 
-			$form->addSubmit('save', 'Uložit');
-			$form->addSubmit('cancel', 'Zrušit')->getControlPrototype()->class = 'btn';
+				if ($row) {
+					$values = array('totalAmountPages' => $row->totalAmountPages, 'id' => $row->id, 'dateProcess' => $row->dateProcess,
+						'datePrint' => $row->datePrint, 'dateOut' => $row->dateOut);
+					$form->setDefaults($values);
+				}
+				return $form;
+			});
 
-			if ($row) {
-				$values = array('totalAmountPages' => $row->totalAmountPages, 'id' => $row->id, 'dateProcess' => $row->dateProcess,
-					'datePrint' => $row->datePrint, 'dateOut' => $row->dateOut);
-				$form->setDefaults($values);
-			}
-			return $form;
-		});
-
-		$grid->setEditFormCallback($this->saveData);
+			$grid->setEditFormCallback($this->saveData);
+		}
 
 		//$grid->addCellsTemplate(__DIR__ . '/../../templates/defaultDatagrid.latte');
 		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.datagrid.latte');
@@ -165,14 +168,10 @@ class StatusPresenter extends BasePresenter {
 			return $this->getSession()->getSection("StatusPresenter")->company_id;
 	}
 
-	
-	
 	public function getColumName($propertyName) {
 		return($this->mapper->getColumn('\Model\Entity\Status', $propertyName));
 	}
 
-	
-	
 	public function saveData(Nette\Forms\Container $form) {
 
 		$values = $form->getValues();
@@ -185,8 +184,8 @@ class StatusPresenter extends BasePresenter {
 				if (!($k == 'id')) {
 					//$propertyType = $entity::getReflection()->getEntityProperty($k)->getType();
 					//if ($propertyType == "DateTime") {																	
-						//$v = new \DateTime($v);
-							//$x = $v->format('d.m.Y H:i:s');						
+					//$v = new \DateTime($v);
+					//$x = $v->format('d.m.Y H:i:s');						
 					//}
 
 					$entity->__set($k, $v);
