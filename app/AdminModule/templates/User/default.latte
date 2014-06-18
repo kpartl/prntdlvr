@@ -1,0 +1,34 @@
+{* Latte template *}
+
+{block content}
+
+<style>.table{
+		max-width: 500px;
+	}
+</style>
+
+
+{*<div ><h1>Seznam uživatelů</h1></div>*}
+<h1 n:block="title">Uživatelé</h1>
+
+
+
+{control userDatagrid}
+
+<a href="{plink User:add}" class="btn btn-small btn-success">Nový uživatel</a>
+
+{*<script>
+	$('#frm-editForm-addUserButton').click(function() {
+	$('#frm-editForm-showCheckbox').click();
+		})
+</script>
+  *}
+
+{*<ul class="error" n:if="$form->errors">
+	<li n:foreach="$form->errors as $error">{$error}</li>
+</ul>*}
+
+{*/form*}
+
+
+{/block}

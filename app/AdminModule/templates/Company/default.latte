@@ -1,0 +1,23 @@
+{* Latte template *}
+
+{block content}
+
+<style>.table{
+		max-width: 500px;
+	}
+</style>
+
+<h1 n:block="title">Společnosti</h1>
+
+
+
+{control companyDatagrid}
+
+<p><a href="{plink add!}" class="btn btn-success ajax">Přidat</a></p>
+
+{snippet addForm}
+
+	{control addForm}
+
+{/snippet}
+{/block}

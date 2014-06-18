@@ -1,0 +1,30 @@
+1. sloupec datum vytištìní se zmìní na datum kompletace celé obálky
+2. èas a datum se nebude ruènì editovat, doplní se na základì vybraného statusu, systémové datum
+3 sloupec datum zpracování se zmìní na "datum dle statusu" dle vybraného statusu se doplní datum 
+4.pøidá se do èíselníku novı status "kompletace" 
+5. link na RDI ke spoolu
+6. pøidat kontrolu na vıbìr statusu "pøedáno odesílateli" musí existovat datum kompletace
+7. poznámka ke spoolu pøidat
+8. doplnit taèítko home v administraci
+-----------------------------------------------------------------------------------------------------
+OK 1. název stránky print portal místo ( "NETTE APLICATION SKELETON")
+NEJDE 2. ukotvení pøíèek  s hlavièkou u vyhledávání
+POZDEJI 3. reimy zobrazení pro typy uivatelù ( administrator, obsluha, ECE, Lettershop )
+4. po pøidání nového záznamu pro company,  se nezobrazí v rozbalovacím menu
+NERESIT 5. je potøeba evidovat zvláš datum a zvláš èas - dùvod vyhledávání
+NEJDE 6. barevné rozlišení øádek dle statusù - Korèák
+POZDEJI 7. generování texáku pro STRS generování faktur - Korèák upøesní co by mìla obsahovat
+8. nová záloka "Evidence bannerù" bude zde ID spoolu, typ dokadù, datum odeslaní a celkovı poèet banerù pro typ A,B,C 
+   rozbalovák s moností filtru firma banner ( co je to za benner ) monost rozkliknutí id spoolu a pøechod do "detail spoolu" a na seznam dokladù
+   u kadého dokladu v menu název " typ banneru A,B,C " u daného dokladu k typu banneru zapsat pouitı banner "tøeba typ A - Budvar "
+9. nová záloka fakturace alternativní roznášky - ( generování texáku do STRS pro fakturu  ) - musí bıt datum odeslání,  
+   id spoolu , typ dokladu??, poèet ks pošta, poèet obálek post mail, poèet obálek ...., cena za obálku\alternativec, celkem fa za období
+-----------------------------------------------------------------------------------------------------
+OK 1.více záznamù na stránku cca 100
+OK 2.nezapisuje se finální datum statusu pøedáno odesílateli
+OK 3.status pro spool , kterı se neodeslal, ale probìhl- pro fakturaèní report
+NECHAPU 4.sloupec poèet - vyuití pro idspool ,pøejmenovat id spool-interní id a poèet pøejmenovat sap spool ID s moností vyhledávání
+NEVERIM 5.èíslo dokladu se nezobrazuje celé "seznam dokladù" detail
+6."seznam dokladù" co znamená èíslo zákazníka???
+POZDEJI 7.monost vymazání databáze
+   

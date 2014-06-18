@@ -18,7 +18,8 @@ abstract class ARepository extends \LeanMapper\Repository {
 				->fetch();
 
 		if ($row === false) {
-			throw new \Exception('Entity was not found.');
+			//throw new \Exception('Entity was not found.');
+			return null;
 		}
 		return $this->createEntity($row);
 	}
@@ -27,10 +28,9 @@ abstract class ARepository extends \LeanMapper\Repository {
 	 * @param null $query
 	 * @return array
 	 */
-	public function findAll($query = NULL) {
+	public function findAll($query = NULL) {	
 		$statement = $this->connection->select('*')
-				->from($this->getTable());
-		//\Model\CommonFilter::apply($statement, $query);
+				->from($this->getTable());						
 
 		return $this->createEntities(
 						$statement->fetchAll()
@@ -86,7 +86,7 @@ abstract class ARepository extends \LeanMapper\Repository {
 
 
 		if ($where)
-			$command = $command . ", @RowFilter= '$where' ";
+			$command = $command . ", @RowFilter= \"$where\" ";
 
 		if ($orderBy) {
 			$command = $command . ", @KeyField= ' $orderBy ' ";
@@ -98,5 +98,7 @@ abstract class ARepository extends \LeanMapper\Repository {
 		
 		return $command;
 	}
+	
+	
 
 }

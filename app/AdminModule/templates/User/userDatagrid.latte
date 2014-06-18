@@ -1,0 +1,30 @@
+{* Latte template *}
+
+{define col-username}
+<td>
+	{*var $args = array('id' => $row->id)*} 
+
+
+<!--	<a href="{plink User:default,$row->id}"> -->
+
+		{$row->username}
+	<!--</a>-->
+</td>
+{/define}
+
+
+{define col-role}
+<td>	 	
+	{ifset $row->role}
+		{$row->role->name}
+	{/ifset}
+</td>
+{/define}
+
+
+{define row-actions}
+	<a href="{plink edit $primary}"  class="btn btn-default ">Editovat</a>
+	<a href="{plink changePassword $primary}"  class="btn btn-default ">Změnit heslo</a>
+	<a href="{plink delete! $primary}" data-confirm="Opravdu smazat?" class="btn btn-danger ajax" data-ajax="on">Smazat</a>
+{/define}
+

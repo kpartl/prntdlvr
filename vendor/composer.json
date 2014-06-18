@@ -1,0 +1,6 @@
+{
+    "require": {
+        "dibi/dibi": "2.1.1",
+        "nextras/latte-macros": "v1.0.0"
+    }
+}

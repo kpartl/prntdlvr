@@ -117,7 +117,7 @@ class SubmitButton extends Button implements Nette\Forms\ISubmitterControl
 			$scope[] = $control->lookupPath('Nette\Forms\Form');
 		}
 		return parent::getControl($caption)->addAttributes(array(
-			'formnovalidate' => $this->validationScope !== NULL,
+			'formonvalidate' => $this->validationScope !== NULL,
 			'data-nette-validation-scope' => $scope ? json_encode($scope) : NULL,
 		));
 	}

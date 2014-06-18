@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/@layout.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/userDatagrid.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/add.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/presenters/UserPresenter.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/edit.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/changePassword.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/Company/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/templates/@layout.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/presenters/CompanyPresenter.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/templates/Status/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/templates/StatusDetail/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/model/Authenticator.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/presenters/StatusPresenter.php</file>
+        </group>
     </open-files>
 </project-private>

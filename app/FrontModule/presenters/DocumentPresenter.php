@@ -47,7 +47,7 @@ class DocumentPresenter extends BasePresenter {
 		//$grid->setRowPrimaryKey('id');
 
 		$grid->setDataSourceCallback($this->getDataSource);
-		$grid->setPagination($this->settings['dataSourceLimit'], $this->getDataSourceSum);
+		$grid->setPagination(self::$settings['dataSourceLimit'], $this->getDataSourceSum);
 		$grid->setFilterFormFactory(function () {
 			//$form = new \Nella\Forms\Container;
 			$form = new \Nette\Forms\Container;

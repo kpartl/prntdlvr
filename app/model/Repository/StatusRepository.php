@@ -17,12 +17,14 @@ class StatusRepository extends ARepository {
 		if (!isSet($company_id))
 			return array();
 
-		if ((!$storedProcParams) or (!isSet($storedProcParams['pageSize']))) {
+	if ((!$storedProcParams) or (!isSet($storedProcParams['pageSize']))) {
 			$row = $this->connection->select('*')
 					->from($this->getTable())
 					->where('ID_COMPANY = %i', $company_id);
 			$row = $this->prepareSelectParams($row, $storedProcParams)->fetchAll();
 		} else {
+	 
+	
 			$where = " ID_COMPANY = $company_id  ";
 //			$orderBy = null;
 //			$ascOrDesc = null;
@@ -62,6 +64,7 @@ class StatusRepository extends ARepository {
 //			}
 //echo($command);
 			//	$row = $this->connection->query($command)->fetchAll();
+			//echo($this->prepareStoredProcParams($where, $storedProcParams));
 			$row = $this->connection->query($this->prepareStoredProcParams($where, $storedProcParams))->fetchAll();
 		}
 

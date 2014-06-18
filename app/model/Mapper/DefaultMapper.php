@@ -57,12 +57,12 @@ class DefaultMapper implements LeanMapper\IMapper {
 	 * @return string
 	 */
 	public function getColumn($entityClass, $field) {
-		$class = new $entityClass;		
-		$refl = $class::getReflection();	
+		$class = new $entityClass;
+		$refl = $class::getReflection();
 		return $refl->getEntityProperty($field)->getColumn();
-		
-		
-		
+
+
+
 //		$className =  $entityClass;
 //		$class =		new \Nette\Reflection\ClassType($className);
 //		
@@ -123,14 +123,13 @@ class DefaultMapper implements LeanMapper\IMapper {
 	 * @return string
 	 */
 	public function getEntityField($table, $column) {
-		$class = $this->getEntityClass($table);		
+		$class = $this->getEntityClass($table);
 		$refl = $class::getReflection();
-		foreach ($refl->getEntityProperties() as $prop){
-			if($prop->getColumn() == $column){			
+		foreach ($refl->getEntityProperties() as $prop) {
+			if ($prop->getColumn() == $column) {
 				return $prop->getName();
 			}
 		}
-		
 	}
 
 	/**

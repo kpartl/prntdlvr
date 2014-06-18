@@ -1,19 +1,16 @@
-/*body {
-	font: 14px/1.5 Arial, Georgia, Verdana ;
-	margin: 0 auto;
-	width: 1000;
-	color: #333;
-	background-color: #fff;
-}*/
+body {	
+	margin-top: 70px;	
+}
 
 h1, h2 {
 	color: #3484D2;
 
 }
-
+/*
 .nav>li>a {
 	display: inline;
 }
+*/
 
 .container{
 	max-width: 2100px;

@@ -88,8 +88,6 @@ class Callback extends Object
 		if (!is_callable($this->cb)) {
 			throw new InvalidStateException("Callback '$this' is not callable.");
 		}
-		
-	
 		return call_user_func_array($this->cb, $args);
 	}
 

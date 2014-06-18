@@ -1,0 +1,118 @@
+{* Latte template *}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">        
+
+        <title>{block title|striptags|upper}Print Portal Admin{/block}</title>
+
+
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">		
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap3.nextras.datagrid.css">
+		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">        
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+
+
+        <link rel="shortcut icon" href="{$basePath}/favicon.ico">
+
+		<script src="{$basePath}/js/jquery.js"></script>
+		<script src="{$basePath}/js/netteForms.js"></script>
+
+		<script src="{$basePath}/js/bootstrap.min.js"></script>
+		<script src="{$basePath}/js/main.js"></script>
+		<script src="{$basePath}/js/nette.ajax.js"></script>
+		<script src="{$basePath}/js/confirm.ajax.js"></script>
+		<script src="{$basePath}/js/nextras.datagrid.js"></script>
+
+
+
+		{* inicializace Ajaxu*}
+<!--		<script>$(function() {
+						$.nette.init();
+							});
+		</script>-->
+
+		{block head}{/block}
+    </head>
+	<body>
+		<div class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
+			<div class="container-fluid">	
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Naviguj</span>
+						<span class ="icon-bar"></span>
+						<span class ="icon-bar"></span>
+						<span class ="icon-bar"></span>
+					</button>
+					<span class="navbar-brand">Administrace</span>					
+				</div>
+
+				<div class='navbar-collapse collapse'>
+
+					<ul class='nav navbar-nav navbar-right'>
+						<li>
+							<a class='navbar-brand' href={link :Front:Status:default}>Seznam spoolů</a>
+						</li>
+						<li >
+							<label class='navbar-brand'>Přihlášen uživatel {$user->id}</label>
+						</li>
+						<li>
+							<a class='navbar-brand' href={link :Auth:Sign:out}>Odhlásit</a>
+						</li>		
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2 sidebar">
+					<ul class="nav nav-sidebar">
+						<li class="active">					
+							<a href="{plink User:default}">Uživatelé</a>
+						</li>
+						<li class="active">
+							<a href="{plink Company:default}">Společnosti</a>
+						</li>						
+					</ul>
+				</div>
+				<div class=" col-md-10 main">
+					{snippet flashes}
+						<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+					{/snippet}
+					{include #content}
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>
+
+
+<!--<div class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Naviguj</span>
+				<span class ="icon-bar"></span>
+				<span class ="icon-bar"></span>
+				<span class ="icon-bar"></span>
+			</button>
+			<span class="navbar-brand">Administrace</span>
+		</div>
+
+		<div class='navbar-collapse collapse'>
+
+			<ul class='nav navbar-nav navbar-right'>
+				<li >
+					<label class='navbar-brand'>Přihlášen uživatel {$user->id}</label>
+				</li>
+				<li>
+					<a class='navbar-brand' href={link :Auth:Sign:out}>Odhlásit</a>
+				</li>		
+			</ul>
+		</div>
+	</div>
+</div>-->

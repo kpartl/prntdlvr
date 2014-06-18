@@ -25,6 +25,8 @@ use LeanMapper,
  * @property DateTime|null $dateProcess (ID_DATE_PROCESS)
  * @property DateTime|null $datePrint (ID_DATE_PRINT)
  * @property DateTime|null $dateOut (ID_DATE_OUT)
+ * @property string|null $rdiLink (ID_RDI_LINK) 
+ * @property string|null $spoolNote (ID_NOTE)
  * 
 
 

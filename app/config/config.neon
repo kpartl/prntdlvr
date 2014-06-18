@@ -33,12 +33,14 @@ services:
 	- Model\Mapper\DefaultMapper	
 	- Model\Repository\CompanyRepository 
 	- Model\Repository\UserRepository 
+	- Model\Repository\UserCompanyRepository 
 	- Model\Repository\StatusRepository 
 	- Model\Repository\StatusTypeRepository 
 	- Model\Repository\DocTypeRepository 
 	- Model\Repository\DocumentRepository 
 	- Model\Repository\OperatorRepository 
 	- Model\Repository\DistChannelRepository
+	- Model\Repository\RoleRepository
 	authenticator: Model\Authenticator	
 	authorizator:
 		class: Nette\Security\Permission
@@ -53,6 +55,11 @@ services:
 			- allow('operator', 'Front:DocumentDetail', 'edit')
 			- allow('operator', 'Front:Status', 'edit')
 			- allow('admin') 
+	nette.latte:
+		class:  \Nette\Latte\Engine
+		setup:
+			- \Nextras\Latte\Macros\RedefineMacro::install(::$service->getCompiler())
+		autowired: no
 
 #production < common:
 parameters:
@@ -70,3 +77,7 @@ parameters:
 		#username: trans
 		#password: trans
 		profiler: false
+#common:
+
+
+	

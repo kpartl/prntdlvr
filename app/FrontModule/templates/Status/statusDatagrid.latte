@@ -1,15 +1,20 @@
 {define col-id_spool}
 <td>
-	 {var $args = array('id_spool' => $row->id_spool)} 
-	
+	{var $args = array('id_spool' => $row->id_spool)} 
+
 	<a href="{plink StatusDetail:default, (expand) $args}"> 
-	 {*<a href="{plink StatusDetail:default, $row->id}">*}
+		{*<a href="{plink StatusDetail:default, $row->id}">*}
 		{$row->id_spool}
-		</a>
-	</td>
+	</a>
+</td>
 {/define}
 
-
+{define col-filter-dateIn}
+{formContainer dateIn}
+	{input min}
+	{input max}
+{/formContainer}
+{/define}
 
 {define col-dateIn}
 <td>
@@ -51,6 +56,14 @@
 </td>
 {/define}
 
+{define col-rdiLink}
+<td>
+	{ifset $row->rdiLink}		
+		<a href="{$row->rdiLink}">odkaz</a>		
+	{/ifset}
+</td>
+{/define}
+
 {define col-operator}
 <td>
 	{ifset $row->operator}
@@ -59,6 +72,12 @@
 </td>
 {/define}
 
+{define row-actions}
+{if ($user->isAllowed('Front:Status', 'edit')) }
+
+	<a href="{link edit! $primary}"  class="btn btn-default ajax">Editovat</a>
+{/if}
+{/define}
 
 {*
 {define row-actions}

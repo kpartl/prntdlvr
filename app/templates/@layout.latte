@@ -11,17 +11,21 @@
         <meta charset="UTF-8">
         <meta name="description" content="">        
 
-        <title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+        <title>{block title|striptags|upper}Print Portal{/block}</title>
 
 
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">		
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap3.nextras.datagrid.css">
+		<link rel="stylesheet" media="screen,projection,tv"
+			  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">        
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 
 
         <link rel="shortcut icon" href="{$basePath}/favicon.ico">
 		<script src="{$basePath}/js/jquery.js"></script>
+		<script src="{$basePath}/js/jquery-ui.min"></script>
+
 		<script src="{$basePath}/js/netteForms.js"></script>
 
 		<script src="{$basePath}/js/bootstrap.min.js"></script>
@@ -30,19 +34,80 @@
 		<script src="{$basePath}/js/nextras.datagrid.js"></script>
 
 		{* inicializace Ajaxu*}
-<!--	<script>$(function() {
-				$.nette.init();
-					});</script>-->
+		
+<!--		<script>$(function() {
+					$.nette.init();
+						});
+		</script>-->
+
+		<script>
+			/* Czech initialisation for the jQuery UI date picker plugin. */
+			/* Written by Tomas Muller (tomas@tomas-muller.net). */
+			jQuery(function($) {
+    $.datepicker.regional['cs'] = {
+        closeText: 'Zavřít',
+					prevText: '&#x3c;Dříve',
+        nextText: 'Později&#x3e;',
+					currentText: 'Nyní',
+					monthNames: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen',
+						'září', 'říjen', 'listopad', 'prosinec'],
+					monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+					dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+					dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+					dayNamesMin: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+					weekHeader: 'Týd',
+					dateFormat: 'dd. mm. yy',
+					firstDay: 1,
+					isRTL: false,
+					showMonthAfterYear: false,
+					yearSuffix: ''
+				};
+				$.datepicker.setDefaults($.datepicker.regional['cs']);
+			});
+		</script>
+
+		<script>
+			$(document).ready(function() {
+    $("input.date").each(function() { // input[type=date] does not work in IE
+				var el = $(this);
+				var value = el.val();
+				var date = (value ? $.datepicker.parseDate($.datepicker.W3C, value) : null);
+
+				var minDate = el.attr("min") || null;
+				if (minDate)
+					minDate = $.datepicker.parseDate($.datepicker.W3C, minDate);
+				var maxDate = el.attr("max") || null;
+				if (maxDate)
+					maxDate = $.datepicker.parseDate($.datepicker.W3C, maxDate);
+
+        // input.attr("type", "text") throws exception
+					if (el.attr("type") == "date") {
+            var tmp = $("<input/>");
+							$.each("class,disabled,id,maxlength,name,readonly,required,size,style,tabindex,title,value".split(","), function(i, attr) {
+                tmp.attr(attr, el.attr(attr));
+								});
+								tmp.data(el.data());
+								el.replaceWith(tmp);
+								el = tmp;
+							}
+							el.datepicker({
+            minDate: minDate,
+							maxDate: maxDate
+						});
+						el.val($.datepicker.formatDate(el.datepicker("option", "dateFormat"), date));
+					});
+				});
+		</script>
+
 
 		{block head}{/block}
     </head>
 
     <body>	
-        <script> document.documentElement.className += ' js'</script>
+<!--        <script> document.documentElement.className += ' js'</script>-->
 
-       
 
-		</div>
+
 		<div class="container" id="content">
 			{include #content}
 		</div>

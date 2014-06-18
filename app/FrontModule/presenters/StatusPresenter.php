@@ -5,6 +5,11 @@ namespace App\FrontModule;
 use Model;
 use Nette;
 use Nextras;
+use \Nette\Forms\Container;
+use \Model\Entity\StatusType;
+Container::extensionMethod('addDatePicker', function (Container $container, $name, $label = NULL) {
+    return $container[$name] = new \JanTvrdik\Components\DatePicker($label);
+});
 
 /**
  * Class StatusPresenter
@@ -12,17 +17,11 @@ use Nextras;
  */
 class StatusPresenter extends BasePresenter {
 
-	/** @var \Model\Repository\CompanyRepository @inject */
-	public $companyRepository;
-
-	/** @var \Model\Repository\UserRepository @inject */
-	public $userRepository;
-
 	/** @var \Model\Repository\StatusRepository @inject */
 	public $statusRepository;
 
-	/** @var \Model\Repository\StatusTypeRepository @inject */
-	public $statusTypeRepository;
+	/** @var \Model\Repository\DocumentRepository @inject */
+	public $documentRepository;
 
 	/** @persistent */
 	//public $company_id;
@@ -94,14 +93,16 @@ class StatusPresenter extends BasePresenter {
 		$grid->addColumn('totalEleDoc', 'Počet el. dokladů')->enableSort();
 		$grid->addColumn('totalSlip', 'Počet složenek')->enableSort();
 		$grid->addColumn('totalPostFee', 'Poštovné celkem')->enableSort();
-		$grid->addColumn('dateProcess', 'Datum zpracování')->enableSort();
-		$grid->addColumn('datePrint', 'Datum vytíštění')->enableSort();
+		$grid->addColumn('dateProcess', 'Datum změny statusu')->enableSort();
+		$grid->addColumn('datePrint', 'Datum kompletace obálky')->enableSort();
 		$grid->addColumn('dateOut', 'Datum vypravení / odeslání')->enableSort();
+		$grid->addColumn('spoolNote', 'Poznámka')->enableSort();
+		$grid->addColumn('rdiLink', 'Odkaz na data')->enableSort();
 
 		$grid->setRowPrimaryKey('id');
 
 		$grid->setDataSourceCallback($this->getDataSource);
-		$grid->setPagination($this->settings['dataSourceLimit'], $this->getDataSourceSum);
+		$grid->setPagination(self::$settings['dataSourceLimit'], $this->getDataSourceSum);
 
 		$grid->setFilterFormFactory(function () {
 			//$form = new Nette\Forms\Container;
@@ -109,28 +110,40 @@ class StatusPresenter extends BasePresenter {
 			//$form->addText('id_spool'); //->setAttribute('class', 'col-xs-2');
 			$form->addSelect('docType', 'nazevTypu', $this->getCiselnik($this->docTypeRepository))->setPrompt(" ");
 			$form->addSelect('statusType', 'statusType', $this->getCiselnik($this->statusTypeRepository))->setPrompt(" ");
+			$form->addContainer('dateIn');
+			$form['dateIn']->addDatePicker('min');
+			$form['dateIn']->addDatePicker('max');
 			//$form->addDateTime('dateIn');
 
 
 			return $form;
 		});
+		
 		if ($this->user->isAllowed('Front:Status', 'edit')) {
 			$grid->setEditFormFactory(function($row) {
 				//$form = new Nette\Forms\Container;
 				$form = new \Nella\Forms\Container;
 				\Nella\Forms\Controls\DateTime::$format = 'd.m.Y H:i:s';
-				$form->addDateTime('dateProcess');
-				$form->addDateTime('datePrint');
-				$form->addDateTime('dateOut');
+				//$form->addDateTime('dateProcess');
+				//$form->addDateTime('datePrint');
+				//$form->addDateTime('dateOut');
 				//$form->addNumber('totalAmountPages');
+				
+				$form->addSelect('statusType','',$this->getCiselnik($this->statusTypeRepository));
+				$form->addText('spoolNote');
 
 				$form->addSubmit('save', 'Uložit');
 				$form->addSubmit('cancel', 'Zrušit')->getControlPrototype()->class = 'btn';
-
+//dump ($row);
+//die();
 				if ($row) {
-					$values = array('totalAmountPages' => $row->totalAmountPages, 'id' => $row->id, 'dateProcess' => $row->dateProcess,
-						'datePrint' => $row->datePrint, 'dateOut' => $row->dateOut);
-					$form->setDefaults($values);
+					/*$values = array( 'id' => $row->id, 'dateProcess' => $row->dateProcess,
+						'datePrint' => $row->datePrint, 'dateOut' => $row->dateOut,  'statusType' => 1);
+					 * 
+					 */
+					//$values = array('id' => $row->id, 'statusType' => $row->statusType->id, );
+				
+					$form->setDefaults($row->getRawData());
 				}
 				return $form;
 			});
@@ -140,7 +153,7 @@ class StatusPresenter extends BasePresenter {
 
 		//$grid->addCellsTemplate(__DIR__ . '/../../templates/defaultDatagrid.latte');
 		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.datagrid.latte');
-		//$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.extended-pagination.datagrid.latte');
+		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.extended-pagination.datagrid.latte');
 		$grid->addCellsTemplate(__DIR__ . '/../templates/Status/statusDatagrid.latte');
 
 		return $grid;
@@ -175,7 +188,7 @@ class StatusPresenter extends BasePresenter {
 	public function saveData(Nette\Forms\Container $form) {
 
 		$values = $form->getValues();
-//		dump($values);
+		//dump($values);
 
 		$entity = $this->statusRepository->find($values['id']);
 
@@ -192,10 +205,33 @@ class StatusPresenter extends BasePresenter {
 				}
 			}
 		}
-		//$entity->totalAmountPages = $values->totalAmountPages;
+		//zmena datumu posledni editace
+		$entity->dateProcess = new Nette\DateTime();
+		
+		$oldEntity = $this->statusRepository->find($entity->id);
+		
+		//nastaveni datumu kompletace		
+		if(($entity->statusType->id)==StatusType::ID_STATUSU_KOMPLETACE and $oldEntity->statusType->id<StatusType::ID_STATUSU_KOMPLETACE)
+		{
+			$entity->datePrint = new Nette\DateTime();
+		}
+		
+		//kontrola, zda je pri zmene statusu na "Predano odesilateli" nastaven datum kompletace, tj. jestli uz byl nastaven status kompletace
+		if(($entity->statusType->id)==StatusType::ID_STATUSU_PREDANO_ODESILATELI and $entity->datePrint === null){
+			$this->flashMessage("Nelze nastavit status Předáno odesílateli dříve, než byl nastaven status Zkompletováno", 'error');
+			$this->redirect('this');
+			return;
+		}
+		
+		//nastaveni datumu odeslani pri zmene na status predano odesilateli
+		if(($entity->statusType->id)==StatusType::ID_STATUSU_PREDANO_ODESILATELI and $oldEntity->statusType->id != StatusType::ID_STATUSU_PREDANO_ODESILATELI){
+			$entity->dateOut = new Nette\DateTime();	
+		}
+		
+//$entity->totalAmountPages = $values->totalAmountPages;
 		$this->statusRepository->persist($entity);
-		$this['statusDatagrid']->invalidateControl();
-		//$this->redirect('this');
+		//$this['statusDatagrid']->invalidateControl();
+		$this->redirect('this');
 //		$form->setDefaults($values);		
 	}
 

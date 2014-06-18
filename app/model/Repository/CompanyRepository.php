@@ -14,17 +14,15 @@ use Model;
 
 class CompanyRepository extends ARepository
 {
-	/**
-	 * @param Model\Entity\User $user
-	 * @return array
-	 */
-	public function findByUser($user) {		
-		$statement = $this->connection->select('*')				
-				->from($this->getTable());	
-			\Model\CommonFilter::apply($statement, $query);
+	public function findByName($name) {
+		$row = $this->connection->select('*')
+				->from($this->getTable())
+				->where('COMPANY_NAME = %s', $name)
+				->fetch();
 
-		return $this->createEntities(
-						$statement->fetchAll()
-		);
+		if ($row === false) {
+			return null;
+		} else
+			return $this->createEntity($row);
 	}
 }

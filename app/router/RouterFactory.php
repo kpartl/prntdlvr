@@ -23,11 +23,20 @@ class RouterFactory
 			'presenter' => 'Sign',
 			'action' => 'in',
 		)); 
+		
+		$router[] = new Route('admin/<presenter>/<action>[/<id>]', array(
+			'module' => 'Admin',
+			'presenter' => 'AdminPage',
+			'action' => 'default',
+		)); 
+		
 		$router[] = new Route('<presenter>/<action>[/<id>]', array(
 			'module' => 'Front',
 			'presenter' => 'Status',
 			'action' => 'default',
 		)); 
+		
+		
 		return $router;
 	}
 

@@ -4,51 +4,18 @@ namespace App\FrontModule;
 
 use Model;
 use Nette;
+use Nette\Utils\Arrays;
 
 /**
  * Base presenter for all application presenters.
  */
 abstract class BasePresenter extends \Base\BaseBasePresenter {
 
-	/** @var \Model\Repository\DocumentRepository @inject */
-	public $documentRepository;
-
-	/** @var \Model\Repository\DocTypeRepository @inject */
-	public $docTypeRepository;
-
-	/** @var \Model\Repository\OperatorRepository @inject */
-	public $operatorRepository;
-
-	/** @var \Model\Repository\DistChannelRepository @inject */
-	public $distChannelRepository;
-
 	/** @var \LeanMapper\IMapper @inject */
 	public $mapper;
 
-	/** @persistent */
-	public $settings = array(
-		'dataSourceLimit' => 10
-	);
-
 	public function startup() {
 		parent::startup();
-		if (!$this->user->isLoggedIn()) {
-			if ($this->user->getLogoutReason() === Nette\Security\User::INACTIVITY) {
-				$this->flashMessage('Byl/a jste odhlášen/a kvůli neaktivitě.', 'alert-error');
-			}
-			
-			$this->redirect(':Auth:Sign:in', array('backlink' => $this->storeRequest()));
-		} else {
-//			if (!$this->user->isAllowed($this->name, $this->action)) {
-//				$this->flashMessage('Přístup zamítnut!', 'alert-error');
-//				//$this->redirect(':Auth:Sign:in');
-//			}
-			//$this->redirect(':Front:Status:default');
-		}
-	}
-
-	public function beforeRender() {
-		parent::beforeRender();
 	}
 
 	/**
@@ -60,14 +27,12 @@ abstract class BasePresenter extends \Base\BaseBasePresenter {
 	public function getDataSource($filter, $order, \Nette\Utils\Paginator $paginator = NULL) {
 
 		$selection = $this->prepareDataSource($filter, $order, $paginator);
-		//TODO
-//		if ($paginator) {
-//			$selection->limit($paginator->getItemsPerPage(), $paginator->getOffset());
-//		}
+
 		return $selection;
 	}
 
 	private function processFilter(array $filter) {
+		
 		$where = array();
 		foreach ($filter as $k => $v) {
 			if ($v) {
@@ -80,7 +45,18 @@ abstract class BasePresenter extends \Base\BaseBasePresenter {
 						break;
 					default: {
 							if (is_array($v)) {
-								$where [$this->getColumName($k)] = "  IN (" . implode(",",$v) . ") ";
+								if ((Arrays::get($v, 'min', false)) and (Arrays::get($v, 'max', false))) {
+									
+									$tmp = array();
+									$min = "'" . str_replace('-', '', $v['min']['date']) . "'";
+									$max = "'" . str_replace('-', '', $v['max']['date']) . "'";
+
+									$where [$this->getColumName($k)] = " >= $min AND ".$this->getColumName($k)." <= $max";
+									//$where [$this->getColumName($k)] = " <= $max ";
+								} else {
+									
+									$where [$this->getColumName($k)] = "  IN (" . implode(",", $v) . ") ";
+								}
 							} else {
 								$where [$this->getColumName($k)] = "  $v ";
 							}
@@ -107,8 +83,9 @@ abstract class BasePresenter extends \Base\BaseBasePresenter {
 			$storedParams = array('pageSize' => $paginator->getItemsPerPage(), 'offset' => $paginator->getOffset());
 		}
 
-		if (count($where) > 0)
+		if (count($where) > 0){			
 			$storedParams['where'] = $where;
+		}
 
 		if ($order) {
 			$storedParams['orderBy'] = $this->getColumName($order[0]);
@@ -124,9 +101,9 @@ abstract class BasePresenter extends \Base\BaseBasePresenter {
 	 * @return mixed
 	 */
 	public function getDataSourceSum($filter, $order) {
-		
+
 		$entity = $this->prepareDataSource($filter, $order);
-		
+
 		return (count($entity));
 	}
 

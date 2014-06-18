@@ -8,4 +8,6 @@ use LeanMapper;
  */
 class StatusType extends AEntity
 {	
+	const ID_STATUSU_KOMPLETACE = 7;
+	const ID_STATUSU_PREDANO_ODESILATELI = 8;
 }
