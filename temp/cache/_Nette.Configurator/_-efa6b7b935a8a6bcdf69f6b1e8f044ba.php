@@ -1,4 +1,4 @@
-<?php //netteCache[01]010149a:2:{s:4:"time";s:21:"0.39880500 1391761384";s:9:"callbacks";a:61:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:49:"C:\projects\NetBeans\trans\app\config\config.neon";i:2;i:1391419864;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\projects\NetBeans\trans\app\config\config.local.neon";i:2;i:1390936364;}i:2;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\PhpExtension.php";i:2;i:1390051398;}i:3;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:76:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\ConstantsExtension.php";i:2;i:1390051398;}i:4;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\NetteExtension.php";i:2;i:1390051398;}i:5;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:77:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\ExtensionsExtension.php";i:2;i:1390051398;}i:6;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\common\Object.php";i:2;i:1390051398;}i:7;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:71:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\NetteAccessor.php";i:2;i:1390051398;}i:8;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Storages\IJournal.php";i:2;i:1390051398;}i:9;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Storages\FileJournal.php";i:2;i:1390051398;}i:10;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:60:"C:\projects\NetBeans\trans\vendor\Nette\Caching\IStorage.php";i:2;i:1390051398;}i:11;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Storages\FileStorage.php";i:2;i:1390051398;}i:12;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Http\RequestFactory.php";i:2;i:1390051398;}i:13;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Http\IRequest.php";i:2;i:1390051398;}i:14;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Http\Request.php";i:2;i:1390051398;}i:15;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:58:"C:\projects\NetBeans\trans\vendor\Nette\Http\IResponse.php";i:2;i:1390051398;}i:16;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Http\Response.php";i:2;i:1390051398;}i:17;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Http\Context.php";i:2;i:1390051398;}i:18;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Http\Session.php";i:2;i:1390051398;}i:19;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:65:"C:\projects\NetBeans\trans\vendor\Nette\Security\IUserStorage.php";i:2;i:1390051398;}i:20;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:60:"C:\projects\NetBeans\trans\vendor\Nette\Http\UserStorage.php";i:2;i:1390051398;}i:21;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Security\User.php";i:2;i:1390051398;}i:22;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"C:\projects\NetBeans\trans\vendor\Nette\Application\Application.php";i:2;i:1390051398;}i:23;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\vendor\Nette\Application\IPresenterFactory.php";i:2;i:1390051398;}i:24;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\Application\PresenterFactory.php";i:2;i:1390051398;}i:25;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Application\IRouter.php";i:2;i:1390051398;}i:26;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Mail\IMailer.php";i:2;i:1390051398;}i:27;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Mail\SendmailMailer.php";i:2;i:1390051398;}i:28;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\app\model\Repository\ARepository.php";i:2;i:1391761380;}i:29;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:59:"C:\projects\NetBeans\trans\vendor\LeanMapper\Repository.php";i:2;i:1390514743;}i:30;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\app\model\Repository\DistChannelRepository.php";i:2;i:1390593764;}i:31;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\projects\NetBeans\trans\app\model\Repository\OperatorRepository.php";i:2;i:1390597844;}i:32;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\projects\NetBeans\trans\app\model\Repository\DocumentRepository.php";i:2;i:1390663972;}i:33;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\app\model\Repository\RoleRepository.php";i:2;i:1390593718;}i:34;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"C:\projects\NetBeans\trans\vendor\Nette\Security\IAuthenticator.php";i:2;i:1390051398;}i:35;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:54:"C:\projects\NetBeans\trans\app\model\Authenticator.php";i:2;i:1391086826;}i:36;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\vendor\Nette\Security\IAuthorizator.php";i:2;i:1390051398;}i:37;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Security\Permission.php";i:2;i:1390051398;}i:38;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\projects\NetBeans\trans\app\model\Repository\DocTypeRepository.php";i:2;i:1390169942;}i:39;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\app\model\Repository\StatusTypeRepository.php";i:2;i:1390310418;}i:40;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\LeanMapper\IMapper.php";i:2;i:1377525066;}i:41;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:61:"C:\projects\NetBeans\trans\app\model\Mapper\DefaultMapper.php";i:2;i:1391344498;}i:42;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:62:"C:\projects\NetBeans\trans\vendor\dibi\libs\DibiConnection.php";i:2;i:1390138707;}i:43;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:58:"C:\projects\NetBeans\trans\vendor\dibi\libs\DibiObject.php";i:2;i:1390393921;}i:44;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:59:"C:\projects\NetBeans\trans\vendor\LeanMapper\Connection.php";i:2;i:1377525066;}i:45;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\projects\NetBeans\trans\app\model\Repository\CompanyRepository.php";i:2;i:1391352592;}i:46;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\app\model\Repository\UserRepository.php";i:2;i:1391209158;}i:47;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:68:"C:\projects\NetBeans\trans\app\model\Repository\StatusRepository.php";i:2;i:1391374186;}i:48;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\app\model\Repository\UserCompanyRepository.php";i:2;i:1391341534;}i:49;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\projects\NetBeans\trans\app\router\RouterFactory.php";i:2;i:1391113280;}i:50;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\DI\Container.php";i:2;i:1390051398;}i:51;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:80:"C:\projects\NetBeans\trans\vendor\Nette\Application\Diagnostics\RoutingPanel.php";i:2;i:1390051398;}i:52;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:54:"C:\projects\NetBeans\trans\vendor\Nette\Forms\Form.php";i:2;i:1390051398;}i:53;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Cache.php";i:2;i:1390051398;}i:54;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Latte\Engine.php";i:2;i:1390051398;}i:55;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:93:"C:\projects\NetBeans\trans\vendor\Nextras\latte-macros\Nextras\Latte\Macros\RedefineMacro.php";i:2;i:1391382092;}i:56;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Mail\Message.php";i:2;i:1390051398;}i:57;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"C:\projects\NetBeans\trans\vendor\Nette\Templating\FileTemplate.php";i:2;i:1390051398;}i:58;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Templating\Template.php";i:2;i:1390051398;}i:59;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:74:"C:\projects\NetBeans\trans\vendor\Nette\Security\Diagnostics\UserPanel.php";i:2;i:1390051398;}i:60;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\vendor\Nette\DI\Diagnostics\ContainerPanel.php";i:2;i:1390051398;}}}?><?php
+<?php //netteCache[01]010318a:2:{s:4:"time";s:21:"0.32594100 1403722150";s:9:"callbacks";a:62:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:49:"C:\projects\NetBeans\trans\app\config\config.neon";i:2;i:1403252350;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\projects\NetBeans\trans\app\config\config.local.neon";i:2;i:1390936364;}i:2;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\PhpExtension.php";i:2;i:1390051398;}i:3;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:76:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\ConstantsExtension.php";i:2;i:1390051398;}i:4;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\NetteExtension.php";i:2;i:1390051398;}i:5;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:77:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\ExtensionsExtension.php";i:2;i:1390051398;}i:6;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\common\Object.php";i:2;i:1390051398;}i:7;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:71:"C:\projects\NetBeans\trans\vendor\Nette\DI\Extensions\NetteAccessor.php";i:2;i:1390051398;}i:8;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Storages\IJournal.php";i:2;i:1390051398;}i:9;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Storages\FileJournal.php";i:2;i:1390051398;}i:10;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:60:"C:\projects\NetBeans\trans\vendor\Nette\Caching\IStorage.php";i:2;i:1390051398;}i:11;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Storages\FileStorage.php";i:2;i:1390051398;}i:12;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Http\RequestFactory.php";i:2;i:1390051398;}i:13;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Http\IRequest.php";i:2;i:1390051398;}i:14;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Http\Request.php";i:2;i:1390051398;}i:15;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:58:"C:\projects\NetBeans\trans\vendor\Nette\Http\IResponse.php";i:2;i:1390051398;}i:16;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Http\Response.php";i:2;i:1390051398;}i:17;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Http\Context.php";i:2;i:1390051398;}i:18;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Http\Session.php";i:2;i:1390051398;}i:19;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:65:"C:\projects\NetBeans\trans\vendor\Nette\Security\IUserStorage.php";i:2;i:1390051398;}i:20;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:60:"C:\projects\NetBeans\trans\vendor\Nette\Http\UserStorage.php";i:2;i:1390051398;}i:21;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Security\User.php";i:2;i:1390051398;}i:22;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"C:\projects\NetBeans\trans\vendor\Nette\Application\Application.php";i:2;i:1390051398;}i:23;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\vendor\Nette\Application\IPresenterFactory.php";i:2;i:1390051398;}i:24;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\vendor\Nette\Application\PresenterFactory.php";i:2;i:1390051398;}i:25;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Application\IRouter.php";i:2;i:1390051398;}i:26;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Mail\IMailer.php";i:2;i:1390051398;}i:27;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Mail\SendmailMailer.php";i:2;i:1390051398;}i:28;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\app\model\Repository\ARepository.php";i:2;i:1391761380;}i:29;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:59:"C:\projects\NetBeans\trans\vendor\LeanMapper\Repository.php";i:2;i:1390514743;}i:30;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\app\model\Repository\DistChannelRepository.php";i:2;i:1390593764;}i:31;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\projects\NetBeans\trans\app\model\Repository\OperatorRepository.php";i:2;i:1390597844;}i:32;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:70:"C:\projects\NetBeans\trans\app\model\Repository\DocumentRepository.php";i:2;i:1390663972;}i:33;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\app\model\Repository\RoleRepository.php";i:2;i:1390593718;}i:34;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:68:"C:\projects\NetBeans\trans\app\model\Repository\BannerRepository.php";i:2;i:1403722144;}i:35;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\vendor\Nette\Security\IAuthorizator.php";i:2;i:1390051398;}i:36;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Security\Permission.php";i:2;i:1390051398;}i:37;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"C:\projects\NetBeans\trans\vendor\Nette\Security\IAuthenticator.php";i:2;i:1390051398;}i:38;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:54:"C:\projects\NetBeans\trans\app\model\Authenticator.php";i:2;i:1391086826;}i:39;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\projects\NetBeans\trans\app\model\Repository\DocTypeRepository.php";i:2;i:1390169942;}i:40;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:72:"C:\projects\NetBeans\trans\app\model\Repository\StatusTypeRepository.php";i:2;i:1390310418;}i:41;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\LeanMapper\IMapper.php";i:2;i:1377525066;}i:42;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:61:"C:\projects\NetBeans\trans\app\model\Mapper\DefaultMapper.php";i:2;i:1391344498;}i:43;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:62:"C:\projects\NetBeans\trans\vendor\dibi\libs\DibiConnection.php";i:2;i:1390138707;}i:44;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:58:"C:\projects\NetBeans\trans\vendor\dibi\libs\DibiObject.php";i:2;i:1390393921;}i:45;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:59:"C:\projects\NetBeans\trans\vendor\LeanMapper\Connection.php";i:2;i:1377525066;}i:46;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:69:"C:\projects\NetBeans\trans\app\model\Repository\CompanyRepository.php";i:2;i:1391352592;}i:47;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\app\model\Repository\UserRepository.php";i:2;i:1391209158;}i:48;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:68:"C:\projects\NetBeans\trans\app\model\Repository\StatusRepository.php";i:2;i:1403251390;}i:49;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\app\model\Repository\UserCompanyRepository.php";i:2;i:1391341534;}i:50;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\projects\NetBeans\trans\app\router\RouterFactory.php";i:2;i:1391113280;}i:51;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\DI\Container.php";i:2;i:1390051398;}i:52;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:80:"C:\projects\NetBeans\trans\vendor\Nette\Application\Diagnostics\RoutingPanel.php";i:2;i:1390051398;}i:53;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:54:"C:\projects\NetBeans\trans\vendor\Nette\Forms\Form.php";i:2;i:1390051398;}i:54;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:57:"C:\projects\NetBeans\trans\vendor\Nette\Caching\Cache.php";i:2;i:1390051398;}i:55;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Latte\Engine.php";i:2;i:1390051398;}i:56;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:93:"C:\projects\NetBeans\trans\vendor\Nextras\latte-macros\Nextras\Latte\Macros\RedefineMacro.php";i:2;i:1391382092;}i:57;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"C:\projects\NetBeans\trans\vendor\Nette\Mail\Message.php";i:2;i:1390051398;}i:58;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:67:"C:\projects\NetBeans\trans\vendor\Nette\Templating\FileTemplate.php";i:2;i:1390051398;}i:59;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:63:"C:\projects\NetBeans\trans\vendor\Nette\Templating\Template.php";i:2;i:1390051398;}i:60;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:74:"C:\projects\NetBeans\trans\vendor\Nette\Security\Diagnostics\UserPanel.php";i:2;i:1390051398;}i:61;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:73:"C:\projects\NetBeans\trans\vendor\Nette\DI\Diagnostics\ContainerPanel.php";i:2;i:1390051398;}}}?><?php
 // source: C:\projects\NetBeans\trans\app/config/config.neon 
 // source: C:\projects\NetBeans\trans\app/config/config.local.neon 
 
@@ -35,8 +35,8 @@ class SystemContainer extends Nette\DI\Container
 				'application',
 				'nette.presenterFactory',
 				'nette.mailer',
-				'authenticator',
 				'authorizator',
+				'authenticator',
 				'container',
 			),
 			'nette\\di\\extensions\\netteaccessor' => array('nette'),
@@ -65,24 +65,26 @@ class SystemContainer extends Nette\DI\Container
 				'21_Model_Repository_OperatorRepository',
 				'22_Model_Repository_DocumentRepository',
 				'23_Model_Repository_RoleRepository',
-				'26_Model_Repository_DocTypeRepository',
-				'27_Model_Repository_StatusTypeRepository',
-				'30_Model_Repository_CompanyRepository',
-				'31_Model_Repository_UserRepository',
-				'32_Model_Repository_StatusRepository',
-				'33_Model_Repository_UserCompanyRepository',
+				'24_Model_Repository_BannerRepository',
+				'27_Model_Repository_DocTypeRepository',
+				'28_Model_Repository_StatusTypeRepository',
+				'31_Model_Repository_CompanyRepository',
+				'32_Model_Repository_UserRepository',
+				'33_Model_Repository_StatusRepository',
+				'34_Model_Repository_UserCompanyRepository',
 			),
 			'leanmapper\\repository' => array(
 				'20_Model_Repository_DistChannelRepository',
 				'21_Model_Repository_OperatorRepository',
 				'22_Model_Repository_DocumentRepository',
 				'23_Model_Repository_RoleRepository',
-				'26_Model_Repository_DocTypeRepository',
-				'27_Model_Repository_StatusTypeRepository',
-				'30_Model_Repository_CompanyRepository',
-				'31_Model_Repository_UserRepository',
-				'32_Model_Repository_StatusRepository',
-				'33_Model_Repository_UserCompanyRepository',
+				'24_Model_Repository_BannerRepository',
+				'27_Model_Repository_DocTypeRepository',
+				'28_Model_Repository_StatusTypeRepository',
+				'31_Model_Repository_CompanyRepository',
+				'32_Model_Repository_UserRepository',
+				'33_Model_Repository_StatusRepository',
+				'34_Model_Repository_UserCompanyRepository',
 			),
 			'model\\repository\\distchannelrepository' => array(
 				'20_Model_Repository_DistChannelRepository',
@@ -94,24 +96,25 @@ class SystemContainer extends Nette\DI\Container
 				'22_Model_Repository_DocumentRepository',
 			),
 			'model\\repository\\rolerepository' => array('23_Model_Repository_RoleRepository'),
-			'nette\\security\\iauthenticator' => array('authenticator'),
-			'model\\authenticator' => array('authenticator'),
+			'model\\repository\\bannerrepository' => array('24_Model_Repository_BannerRepository'),
 			'nette\\security\\iauthorizator' => array('authorizator'),
 			'nette\\security\\permission' => array('authorizator'),
-			'model\\repository\\doctyperepository' => array('26_Model_Repository_DocTypeRepository'),
+			'nette\\security\\iauthenticator' => array('authenticator'),
+			'model\\authenticator' => array('authenticator'),
+			'model\\repository\\doctyperepository' => array('27_Model_Repository_DocTypeRepository'),
 			'model\\repository\\statustyperepository' => array(
-				'27_Model_Repository_StatusTypeRepository',
+				'28_Model_Repository_StatusTypeRepository',
 			),
-			'leanmapper\\imapper' => array('28_Model_Mapper_DefaultMapper'),
-			'model\\mapper\\defaultmapper' => array('28_Model_Mapper_DefaultMapper'),
-			'dibiconnection' => array('29_LeanMapper_Connection'),
-			'dibiobject' => array('29_LeanMapper_Connection'),
-			'leanmapper\\connection' => array('29_LeanMapper_Connection'),
-			'model\\repository\\companyrepository' => array('30_Model_Repository_CompanyRepository'),
-			'model\\repository\\userrepository' => array('31_Model_Repository_UserRepository'),
-			'model\\repository\\statusrepository' => array('32_Model_Repository_StatusRepository'),
+			'leanmapper\\imapper' => array('29_Model_Mapper_DefaultMapper'),
+			'model\\mapper\\defaultmapper' => array('29_Model_Mapper_DefaultMapper'),
+			'dibiconnection' => array('30_LeanMapper_Connection'),
+			'dibiobject' => array('30_LeanMapper_Connection'),
+			'leanmapper\\connection' => array('30_LeanMapper_Connection'),
+			'model\\repository\\companyrepository' => array('31_Model_Repository_CompanyRepository'),
+			'model\\repository\\userrepository' => array('32_Model_Repository_UserRepository'),
+			'model\\repository\\statusrepository' => array('33_Model_Repository_StatusRepository'),
 			'model\\repository\\usercompanyrepository' => array(
-				'33_Model_Repository_UserCompanyRepository',
+				'34_Model_Repository_UserCompanyRepository',
 			),
 			'routerfactory' => array('routerFactory'),
 			'nette\\di\\container' => array('container'),
@@ -151,7 +154,7 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createService__20_Model_Repository_DistChannelRepository()
 	{
-		$service = new Model\Repository\DistChannelRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\DistChannelRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -161,7 +164,7 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createService__21_Model_Repository_OperatorRepository()
 	{
-		$service = new Model\Repository\OperatorRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\OperatorRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -171,7 +174,7 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createService__22_Model_Repository_DocumentRepository()
 	{
-		$service = new Model\Repository\DocumentRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\DocumentRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -181,7 +184,17 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createService__23_Model_Repository_RoleRepository()
 	{
-		$service = new Model\Repository\RoleRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\RoleRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
+		return $service;
+	}
+
+
+	/**
+	 * @return Model\Repository\BannerRepository
+	 */
+	public function createService__24_Model_Repository_BannerRepository()
+	{
+		$service = new Model\Repository\BannerRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -189,9 +202,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Repository\DocTypeRepository
 	 */
-	public function createService__26_Model_Repository_DocTypeRepository()
+	public function createService__27_Model_Repository_DocTypeRepository()
 	{
-		$service = new Model\Repository\DocTypeRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\DocTypeRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -199,9 +212,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Repository\StatusTypeRepository
 	 */
-	public function createService__27_Model_Repository_StatusTypeRepository()
+	public function createService__28_Model_Repository_StatusTypeRepository()
 	{
-		$service = new Model\Repository\StatusTypeRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\StatusTypeRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -209,7 +222,7 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Mapper\DefaultMapper
 	 */
-	public function createService__28_Model_Mapper_DefaultMapper()
+	public function createService__29_Model_Mapper_DefaultMapper()
 	{
 		$service = new Model\Mapper\DefaultMapper;
 		return $service;
@@ -219,7 +232,7 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return LeanMapper\Connection
 	 */
-	public function createService__29_LeanMapper_Connection()
+	public function createService__30_LeanMapper_Connection()
 	{
 		$service = new LeanMapper\Connection(array(
 			'driver' => 'mssql2005',
@@ -236,9 +249,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Repository\CompanyRepository
 	 */
-	public function createService__30_Model_Repository_CompanyRepository()
+	public function createService__31_Model_Repository_CompanyRepository()
 	{
-		$service = new Model\Repository\CompanyRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\CompanyRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -246,9 +259,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Repository\UserRepository
 	 */
-	public function createService__31_Model_Repository_UserRepository()
+	public function createService__32_Model_Repository_UserRepository()
 	{
-		$service = new Model\Repository\UserRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\UserRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -256,9 +269,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Repository\StatusRepository
 	 */
-	public function createService__32_Model_Repository_StatusRepository()
+	public function createService__33_Model_Repository_StatusRepository()
 	{
-		$service = new Model\Repository\StatusRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\StatusRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -266,9 +279,9 @@ class SystemContainer extends Nette\DI\Container
 	/**
 	 * @return Model\Repository\UserCompanyRepository
 	 */
-	public function createService__33_Model_Repository_UserCompanyRepository()
+	public function createService__34_Model_Repository_UserCompanyRepository()
 	{
-		$service = new Model\Repository\UserCompanyRepository($this->getService('29_LeanMapper_Connection'), $this->getService('28_Model_Mapper_DefaultMapper'));
+		$service = new Model\Repository\UserCompanyRepository($this->getService('30_LeanMapper_Connection'), $this->getService('29_Model_Mapper_DefaultMapper'));
 		return $service;
 	}
 
@@ -292,7 +305,7 @@ class SystemContainer extends Nette\DI\Container
 	 */
 	public function createServiceAuthenticator()
 	{
-		$service = new Model\Authenticator($this->getService('31_Model_Repository_UserRepository'));
+		$service = new Model\Authenticator($this->getService('32_Model_Repository_UserRepository'));
 		return $service;
 	}
 

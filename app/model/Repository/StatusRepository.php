@@ -13,18 +13,18 @@ use Model;
  */
 class StatusRepository extends ARepository {
 
-	public function findByCompany($company_id, array $storedProcParams = NULL) {		
+	public function findByCompany($company_id, array $storedProcParams = NULL) {
 		if (!isSet($company_id))
 			return array();
 
-	if ((!$storedProcParams) or (!isSet($storedProcParams['pageSize']))) {
+		if ((!$storedProcParams) or (!isSet($storedProcParams['pageSize']))) {
 			$row = $this->connection->select('*')
 					->from($this->getTable())
 					->where('ID_COMPANY = %i', $company_id);
 			$row = $this->prepareSelectParams($row, $storedProcParams)->fetchAll();
 		} else {
-	 
-	
+
+
 			$where = " ID_COMPANY = $company_id  ";
 //			$orderBy = null;
 //			$ascOrDesc = null;

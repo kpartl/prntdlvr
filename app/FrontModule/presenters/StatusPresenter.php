@@ -76,12 +76,12 @@ class StatusPresenter extends BasePresenter {
 	public function createComponentStatusDatagrid() {
 		$grid = new \Nextras\Datagrid\Datagrid;
 
-		$grid->addColumn('id_spool', 'Id spoolu')->enableSort();
+		$grid->addColumn('id_spool', 'Interní Id spoolu')->enableSort();
 		//$grid->addColumn('id_company');
 		$grid->addColumn('dateIn', 'Datum přijetí')->enableSort();
 		$grid->addColumn('docType', 'Typ dokladu')->enableSort();
 		$grid->addColumn('statusType', 'Status zpracovani')->enableSort();
-		$grid->addColumn('totalAmountPages', 'Počet')->enableSort();
+		$grid->addColumn('totalAmountPages', 'SAP spool Id')->enableSort();
 		$grid->addColumn('totalAmountEnvelop', 'Počet zásilek')->enableSort();
 		$grid->addColumn('totalAmountBanner', 'Počet bannerů')->enableSort();
 		$grid->addColumn('totalAmountBW', 'Počet ČB stran')->enableSort();
@@ -165,6 +165,7 @@ class StatusPresenter extends BasePresenter {
 	 * @return Nette\Database\Table\Selection
 	 */
 	public function prepareDataSource($filter, $order, $paginator = NULL) {
+		
 		$storedParams = $this->prepareParams($filter, $order, $paginator);
 
 

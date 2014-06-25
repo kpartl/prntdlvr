@@ -10,12 +10,18 @@
 				<span class ="icon-bar"></span>
 				<span class ="icon-bar"></span>
 			</button>
-			<span class="navbar-brand">Portál</span>
+			<span class="navbar-brand">Print Portal</span>
 		</div>
 
 		<div class='navbar-collapse collapse'>
 
 			<ul class='nav navbar-nav navbar-right'>
+				<li>
+					<a class='navbar-brand' href={link :Front:Status:default}>Seznam spoolů</a>
+				</li>
+				<li>
+					<a class='navbar-brand' href={link :Front:Banner:default}>Evidence Bannerů</a>
+				</li>
 				{if $user->isInRole('admin')}
 					<li>
 						<a class='navbar-brand' href={plink :Admin:AdminPage:default}>Administrace</a>

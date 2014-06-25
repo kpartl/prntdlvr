@@ -1,0 +1,22 @@
+{* Latte template *}
+
+{block content}
+
+{include '../base.latte'}
+
+<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+
+<div ><h1>Evidence bannerů</h1></div>
+
+{form datePicker}
+<h4>Rozsah zobrazení</h4>
+<h5>od: {input from}</h5>
+<h5>do: {input to}</h5>
+{input submittButton value=>'Vybrat', class=>'btn btn-success btn-small'}
+{/form}
+<br/>
+<h4>Celkový souhrn</h4>
+{control totalBannerDatagrid}
+<h4>Spooly</h4>
+{control bannerDatagrid}

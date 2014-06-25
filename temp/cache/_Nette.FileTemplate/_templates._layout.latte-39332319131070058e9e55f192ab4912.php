@@ -1,30 +1,30 @@
-<?php //netteCache[01]000380a:2:{s:4:"time";s:21:"0.70387000 1403006813";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\app\AdminModule\templates\@layout.latte";i:2;i:1403006565;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000380a:2:{s:4:"time";s:21:"0.92855000 1403684312";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"C:\projects\NetBeans\trans\app\AdminModule\templates\@layout.latte";i:2;i:1403080142;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\projects\NetBeans\trans\app\AdminModule\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ewm9019vo9')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'i9097esidv')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbda39193b75_title')) { function _lbda39193b75_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-?>Print Portal<?php
+if (!function_exists($_l->blocks['title'][] = '_lbd36353dc36_title')) { function _lbd36353dc36_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+?>Print Portal Admin<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb999c65867c_head')) { function _lb999c65867c_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lb84f381f059_head')) { function _lb84f381f059_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block _flashes
 //
-if (!function_exists($_l->blocks['_flashes'][] = '_lbd7b86cdbaa__flashes')) { function _lbd7b86cdbaa__flashes($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('flashes', FALSE)
+if (!function_exists($_l->blocks['_flashes'][] = '_lbc7bb037341__flashes')) { function _lbc7bb037341__flashes($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('flashes', FALSE)
 ;$iterations = 0; foreach ($flashes as $flash) { ?>						<div class="flash <?php echo htmlSpecialChars($flash->type) ?>
 "><?php echo Nette\Templating\Helpers::escapeHtml($flash->message, ENT_NOQUOTES) ?></div>
 <?php $iterations++; } 

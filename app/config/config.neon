@@ -41,6 +41,7 @@ services:
 	- Model\Repository\OperatorRepository 
 	- Model\Repository\DistChannelRepository
 	- Model\Repository\RoleRepository
+	- Model\Repository\BannerRepository
 	authenticator: Model\Authenticator	
 	authorizator:
 		class: Nette\Security\Permission

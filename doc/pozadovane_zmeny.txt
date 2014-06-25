@@ -23,7 +23,7 @@ POZDEJI 7. generování texáku pro STRS generování faktur - Korèák upøesní co by 
 OK 1.více záznamù na stránku cca 100
 OK 2.nezapisuje se finální datum statusu pøedáno odesílateli
 OK 3.status pro spool , kterı se neodeslal, ale probìhl- pro fakturaèní report
-NECHAPU 4.sloupec poèet - vyuití pro idspool ,pøejmenovat id spool-interní id a poèet pøejmenovat sap spool ID s moností vyhledávání
+OK 4.sloupec poèet - vyuití pro idspool ,pøejmenovat id spool-interní id a poèet pøejmenovat sap spool ID s moností vyhledávání
 NEVERIM 5.èíslo dokladu se nezobrazuje celé "seznam dokladù" detail
 6."seznam dokladù" co znamená èíslo zákazníka???
 POZDEJI 7.monost vymazání databáze

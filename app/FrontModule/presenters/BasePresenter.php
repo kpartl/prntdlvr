@@ -30,6 +30,19 @@ abstract class BasePresenter extends \Base\BaseBasePresenter {
 
 		return $selection;
 	}
+	
+	/**
+	 * @param $filter
+	 * @param $order
+	 * @param Nette\Utils\Paginator $paginator
+	 * @return mixed
+	 */
+	public function getSecondDataSource($filter, $order, \Nette\Utils\Paginator $paginator = NULL) {
+
+		$selection = $this->prepareSecondDataSource($filter, $order, $paginator);
+
+		return $selection;
+	}
 
 	private function processFilter(array $filter) {
 		

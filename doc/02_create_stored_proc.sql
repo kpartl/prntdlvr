@@ -7,11 +7,11 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
---DROP PROCEDURE [dbo].[PaginateTable]
---GO
+DROP PROCEDURE [dbo].[PaginateTable]
+GO
 CREATE PROCEDURE [dbo].[PaginateTable]
 (
-  -- deklarace vstupních parametrù a nastavení vıchozích hodnot
+  -- deklarace vstupnÃ­ch parametrÅ¯ a nastavenÃ­ vÃ½chozÃ­ch hodnot
   @TableName VARCHAR(64),
   @PageSize INT = 30,
   @CurrentPageIndex INT = 0,
@@ -20,28 +20,28 @@ CREATE PROCEDURE [dbo].[PaginateTable]
   @AscOrDesc VARCHAR(4) = 'ASC'
 )
 AS
-  -- pomocná promìnná pro celkovı poèet záznamù
-  -- pomocná promìnná pro celkovı poèet záznamù
+  -- pomocnÃ¡ promÄ›nnÃ¡ pro celkovÃ½ poÄet zÃ¡znamÅ¯
+  -- pomocnÃ¡ promÄ›nnÃ¡ pro celkovÃ½ poÄet zÃ¡znamÅ¯
   DECLARE @ItemCount INT
-  -- pomocná promìnná pro poèet všech stránek
+  -- pomocnÃ¡ promÄ›nnÃ¡ pro poÄet vÅ¡ech strÃ¡nek
   DECLARE @PageCount INT
-  -- pomocná promìnná pro SQL dotaz urèující poèet všech záznamù
+  -- pomocnÃ¡ promÄ›nnÃ¡ pro SQL dotaz urÄujÃ­cÃ­ poÄet vÅ¡ech zÃ¡znamÅ¯
   DECLARE @ItemCountSQL NVARCHAR(1024)
   DECLARE @tmp NVARCHAR(1024)
-  -- pomocná promìnná pro podmínku v SQL dotazu pøi pouití podmínky RowFilter
+  -- pomocnÃ¡ promÄ›nnÃ¡ pro podmÃ­nku v SQL dotazu pÅ™i pouÅ¾itÃ­ podmÃ­nky RowFilter
   DECLARE @WhereSQL VARCHAR(3128)
-  -- pokud je zadána vlastnost RowFilter, pak ji pøevezmeme do promìnné @WhereSQL
+  -- pokud je zadÃ¡na vlastnost RowFilter, pak ji pÅ™evezmeme do promÄ›nnÃ© @WhereSQL
   IF (@RowFilter IS NOT NULL AND @RowFilter <> '')
     SET @WhereSQL = ' WHERE ' + @RowFilter
   ELSE
     SET @WhereSQL = ' '
-  -- sloit SQL dotaz pro vıpoèet celkového poètu záznamù, pøidáváme jméno tabulky a pøípadnì omezující podmínku @WhereSQL
+  -- sloÅ¾it SQL dotaz pro vÃ½poÄet celkovÃ©ho poÄtu zÃ¡znamÅ¯, pÅ™idÃ¡vÃ¡me jmÃ©no tabulky a pÅ™Ã­padnÄ› omezujÃ­cÃ­ podmÃ­nku @WhereSQL
   SET @ItemCountSQL = 'SELECT @ItemCount = COUNT(*) FROM ' + @TableName + @WhereSQL
-  -- spustit pøipravenı dotaz pomocí sp_ExecuteSql, získáme tak celkovı poèet záznamù do promìnné @ItemCount
+  -- spustit pÅ™ipravenÃ½ dotaz pomocÃ­ sp_ExecuteSql, zÃ­skÃ¡me tak celkovÃ½ poÄet zÃ¡znamÅ¯ do promÄ›nnÃ© @ItemCount
   EXEC sp_ExecuteSql @ItemCountSQL, N'@ItemCount INT OUT', @ItemCount OUT
-  -- stanovit poèet stránek potøebnıch pro zobrazení všech záznamù
+  -- stanovit poÄet strÃ¡nek potÅ™ebnÃ½ch pro zobrazenÃ­ vÅ¡ech zÃ¡znamÅ¯
   SET @PageCount = CEILING(@ItemCount*1.0/@PageSize)
-  -- pøipravit první sadu vısledku s údaji VirtualItemCount, CurrentPageIndex (pokud není poadována neexistující stránka, jinak NULL), PageSize, PageCount
+  -- pÅ™ipravit prvnÃ­ sadu vÃ½sledku s Ãºdaji VirtualItemCount, CurrentPageIndex (pokud nenÃ­ poÅ¾adovÃ¡na neexistujÃ­cÃ­ strÃ¡nka, jinak NULL), PageSize, PageCount
  /**** SELECT
     @ItemCount AS VirtualtemCount,
     CurrentPageIndex =
@@ -51,20 +51,20 @@ AS
       END,
     @PageSize AS PageSize, @PageCount AS PageCount
 */
-  -- pomocná promìnná pro odrolování "za pøedchozí záznamy"
+  -- pomocnÃ¡ promÄ›nnÃ¡ pro odrolovÃ¡nÃ­ "za pÅ™edchozÃ­ zÃ¡znamy"
   DECLARE @ItemRollOut INT
-  -- pøedávat vısledek pouze, pokud je délka stránky vìtší ne 0, jinak vra NULL
+  -- pÅ™edÃ¡vat vÃ½sledek pouze, pokud je dÃ©lka strÃ¡nky vÄ›tÅ¡Ã­ neÅ¾ 0, jinak vraÅ¥ NULL
   IF (@PageSize > 0)
     BEGIN
-      -- pøipravit poèet odrolovávanıch záznamù jako rozdíl všech a aktuální stránky vynásobené délkou stránky
+      -- pÅ™ipravit poÄet odrolovÃ¡vanÃ½ch zÃ¡znamÅ¯ jako rozdÃ­l vÅ¡ech a aktuÃ¡lnÃ­ strÃ¡nky vynÃ¡sobenÃ© dÃ©lkou strÃ¡nky
       --SET @ItemRollOut = @ItemCount - @PageSize * @CurrentPageIndex
 	  SET @ItemRollOut = @ItemCount - @CurrentPageIndex
-      -- pokud ji není co odrolovávat, vra NULL
+      -- pokud jiÅ¾ nenÃ­ co odrolovÃ¡vat, vraÅ¥ NULL
       IF (@ItemRollOut > 0)
         BEGIN
-          -- nastavit omezení poètu vrácenıch øádkù na poèet øádkù na stránce
+          -- nastavit omezenÃ­ poÄtu vrÃ¡cenÃ½ch Å™Ã¡dkÅ¯ na poÄet Å™Ã¡dkÅ¯ na strÃ¡nce
           SET ROWCOUNT @PageSize
-          -- pomocná promìnná pro SQL dotaz vracející odpovídající záznamy stránky
+          -- pomocnÃ¡ promÄ›nnÃ¡ pro SQL dotaz vracejÃ­cÃ­ odpovÃ­dajÃ­cÃ­ zÃ¡znamy strÃ¡nky
           DECLARE @ItemSQL VARCHAR(6144)
 		  
 		  -- pripravit promenne pro razeni
@@ -73,9 +73,9 @@ AS
 		  IF(@AscOrDesc = 'ASC') SET  @AscOrDescNegativ = 'DESC' 
 		  ELSE SET @AscOrDescNegativ = 'ASC'
 		  
-          -- sestavit vnoøené dotazy s pouitím názvu tabulky @TableName, sloupce pro tøídìní @KeyField a pøípadné omezující podmínky uloené ve @WhereSQL
+          -- sestavit vnoÅ™enÃ© dotazy s pouÅ¾itÃ­m nÃ¡zvu tabulky @TableName, sloupce pro tÅ™Ã­dÄ›nÃ­ @KeyField a pÅ™Ã­padnÃ© omezujÃ­cÃ­ podmÃ­nky uloÅ¾enÃ© ve @WhereSQL
           SET @ItemSQL = 'SELECT * FROM (SELECT TOP ' + CAST(@ItemRollOut AS VARCHAR(10)) + ' * FROM ' + @TableName + @WhereSQL + 'ORDER BY ' + @KeyField + ' ' + @AscOrDescNegativ  + ') AS TMP1 ORDER BY ' + @KeyField + ' ' + @AscOrDesc
-          -- spustit dotaz, øádky tabulky pro danou stránku tak budou vráceny jako druhá sada
+          -- spustit dotaz, Å™Ã¡dky tabulky pro danou strÃ¡nku tak budou vrÃ¡ceny jako druhÃ¡ sada
           EXEC (@ItemSQL)
         END
       ELSE BEGIN SET @tmp = 'SELECT * FROM ' + @TableName + ' WHERE ID <0'
@@ -86,4 +86,76 @@ AS
         EXEC (@tmp) END
 
 
+GO
+
+drop FUNCTION [dbo].[BannerFunction]
+go
+
+CREATE FUNCTION [dbo].[BannerFunction] (
+@Date_from datetime,
+@Date_to datetime)
+RETURNS TABLE AS
+RETURN (select ID, ID_SPOOL, NAME as TYPE, ID_DATE_OUT, B_NAME, 
+	SUM(B1_SUM) as B1_SUM,B_PRICE_A,(SUM(B1_SUM)*B_PRICE_A) as B_TOTAL_PRICE_A,
+	SUM(B2_SUM) as B2_SUM,B_PRICE_B,(SUM(B2_SUM)*B_PRICE_B) as B_TOTAL_PRICE_B,  
+	SUM(B3_SUM) as B3_SUM,B_PRICE_C,(SUM(B3_SUM)*B_PRICE_C) as B_TOTAL_PRICE_C
+
+from (
+	select s.id as ID, s.ID_SPOOL, dt.NAME, s.ID_DATE_OUT, b.NAME as B_NAME, b.PRICE_A as B_PRICE_A, b.PRICE_B as B_PRICE_B, b.PRICE_C as B_PRICE_C,
+		sum(d.BANNER_ID_1_AMOUNT) as B1_SUM, 0 as B2_SUM, 0 as B3_SUM
+		from TPP_STATUS as s, TPP_DOCUMENT as d, TPP_BANNER_TYPE as b, TPP_DOC_TYPE as dt
+		WHERE (s.ID_DATE_OUT BETWEEN @Date_from  AND @Date_to) AND d.ID_SPOOL = s.ID_SPOOL AND d.ID_COMPANY=s.ID_COMPANY 
+			AND d.BANNER_ID_1_TYPE=b.ID AND s.ID_DOC_TYPE = dt.id
+		GROUP BY s.ID, s.ID_SPOOL, dt.NAME, s.ID_DATE_OUT, b.NAME, b.PRICE_A, b.PRICE_B, b.PRICE_C
+
+	union
+
+	select s.id as ID, s.ID_SPOOL, dt.NAME, s.ID_DATE_OUT, b.NAME as B_NAME,b.PRICE_A as B_PRICE_A, b.PRICE_B as B_PRICE_B, b.PRICE_C as B_PRICE_C,
+		0 as B1_SUM, sum(d.BANNER_ID_2_AMOUNT) as B2_SUM, 0 as B3_SUM 
+		from TPP_STATUS as s, TPP_DOCUMENT as d, TPP_BANNER_TYPE as b, TPP_DOC_TYPE as dt
+		WHERE (s.ID_DATE_OUT BETWEEN @Date_from  AND @Date_to) AND d.ID_SPOOL = s.ID_SPOOL AND d.ID_COMPANY=s.ID_COMPANY 
+			AND d.BANNER_ID_2_TYPE=b.ID AND s.ID_DOC_TYPE = dt.id
+		GROUP BY s.ID, s.ID_SPOOL, dt.NAME, s.ID_DATE_OUT, b.NAME, b.PRICE_A, b.PRICE_B, b.PRICE_C
+
+	union
+
+	select s.id as ID, s.ID_SPOOL, dt.NAME, s.ID_DATE_OUT, b.NAME as B_NAME, b.PRICE_A as B_PRICE_A, b.PRICE_B as B_PRICE_B, b.PRICE_C as B_PRICE_C,
+		0 as B1_SUM, 0 as B2_SUM, sum(d.BANNER_ID_3_AMOUNT) as B3_SUM 
+		from TPP_STATUS as s, TPP_DOCUMENT as d, TPP_BANNER_TYPE as b, TPP_DOC_TYPE as dt
+		WHERE (s.ID_DATE_OUT BETWEEN @Date_from  AND @Date_to) AND d.ID_SPOOL = s.ID_SPOOL AND d.ID_COMPANY=s.ID_COMPANY 
+			AND d.BANNER_ID_3_TYPE=b.ID AND s.ID_DOC_TYPE = dt.id
+		GROUP BY s.ID, s.ID_SPOOL, dt.NAME, s.ID_DATE_OUT, b.NAME, b.PRICE_A, b.PRICE_B, b.PRICE_C
+) as vnorenySelect GROUP BY B_NAME,ID, ID_SPOOL, NAME, ID_DATE_OUT, B_PRICE_A, B_PRICE_B, B_PRICE_C
+)
+GO
+
+DROP PROCEDURE [dbo].[GetBannerStats]
+go
+
+CREATE PROCEDURE [dbo].[GetBannerStats]
+(@Date_from varchar(255),
+ @Date_to varchar(255),
+ @KeyField VARCHAR(32) = 'ID_SPOOL',  
+ @AscOrDesc VARCHAR(4) = 'ASC'
+)
+AS
+EXEC('select * from BannerFunction('''+@Date_from+''', '''+ @Date_to+ ''') ORDER BY '+@KeyField +' '+ @AscOrDesc)
+GO
+
+DROP PROCEDURE [dbo].[GetTotalBannerStats]
+go
+
+CREATE PROCEDURE [dbo].[GetTotalBannerStats]
+(@Date_from varchar(255),
+ @Date_to varchar(255),
+ @KeyField VARCHAR(32) = 'B_NAME',  
+ @AscOrDesc VARCHAR(4) = 'ASC'
+)
+AS
+EXEC('
+select B_NAME,B_TOTAL_PRICE_A,B_TOTAL_PRICE_B,B_TOTAL_PRICE_C,B_TOTAL_PRICE_A+B_TOTAL_PRICE_B+B_TOTAL_PRICE_C as B_TOTAL_PRICE
+from ( 
+select B_NAME, SUM(B_TOTAL_PRICE_A) as B_TOTAL_PRICE_A, SUM(B_TOTAL_PRICE_B) as B_TOTAL_PRICE_B, SUM(B_TOTAL_PRICE_C) as B_TOTAL_PRICE_C
+from BannerFunction('''+@Date_from+''', '''+ @Date_to+ ''') 
+GROUP BY B_NAME ) as innerSelect  ORDER BY '+@KeyField +' '+ @AscOrDesc)
 GO

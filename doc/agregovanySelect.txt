@@ -1,0 +1,4 @@
+select s.ID_SPOOL, s.ID_DOC_TYPE, s.ID_DATE_IN, count(d.BANNER_ID_1_TYPE) as B1_count, sum(d.BANNER_ID_1_AMOUNT) as B1_sum ,
+count(d.BANNER_ID_2_TYPE) as B2_count, sum(d.BANNER_ID_2_AMOUNT) as B2_sum, count(d.BANNER_ID_3_TYPE) as B3_count, sum(d.BANNER_ID_3_AMOUNT) as B3_sum
+from
+TPP_STATUS as s, TPP_DOCUMENT as d WHERE d.ID_SPOOL = s.ID_SPOOL and d.ID_COMPANY=s.ID_COMPANY group by s.ID_SPOOL, s.ID_DOC_TYPE, s.ID_DATE_IN
