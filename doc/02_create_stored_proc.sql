@@ -159,3 +159,57 @@ select B_NAME, SUM(B_TOTAL_PRICE_A) as B_TOTAL_PRICE_A, SUM(B_TOTAL_PRICE_B) as 
 from BannerFunction('''+@Date_from+''', '''+ @Date_to+ ''') 
 GROUP BY B_NAME ) as innerSelect  ORDER BY '+@KeyField +' '+ @AscOrDesc)
 GO
+
+drop function [dbo].[SouhrnFakturFunction]
+GO
+CREATE FUNCTION [dbo].[SouhrnFakturFunction] (
+@Date_from datetime,
+@Date_to datetime,
+@Operator_id int)
+RETURNS TABLE AS
+RETURN (
+	SELECT d.ID_SPOOL, d.ID_COMPANY, dt.NAME,s.ID_DATE_OUT, d.ID_OPERATOR as ID_OPERATOR, count(d.ID_SPOOL) AS DOC_COUNT, sum(d.DOC_PRICE) as DOC_PRICE
+	FROM  TPP_DOCUMENT as d, TPP_STATUS as s, TPP_DOC_TYPE as dt
+	WHERE (s.ID_DATE_OUT BETWEEN @Date_from  AND @Date_to)AND d.ID_SPOOL = s.ID_SPOOL AND d.ID_COMPANY=s.ID_COMPANY AND d.ID_OPERATOR = @Operator_id AND s.ID_DOC_TYPE = dt.id
+	GROUP BY d.ID_SPOOL, d.ID_COMPANY , d.ID_OPERATOR, dt.NAME, s.ID_DATE_OUT 
+)
+GO
+
+DROP PROCEDURE [dbo].[SouhrnFaktur]
+GO
+
+CREATE PROCEDURE [dbo].[SouhrnFaktur]
+(@Date_from varchar(255),
+ @Date_to varchar(255),
+ @KeyField VARCHAR(32) = 'ID_SPOOL',  
+ @AscOrDesc VARCHAR(4) = 'ASC'
+)
+AS
+EXEC('
+select ID_SPOOL, ID_COMPANY, NAME as TYPE,ID_DATE_OUT,
+SUM(DOC_COUNT1) as DOC_COUNT1, SUM(DOC_PRICE1) as DOC_PRICE1, 
+SUM(DOC_COUNT2) as DOC_COUNT2, SUM(DOC_PRICE2) as DOC_PRICE2, 
+SUM(DOC_COUNT3) as DOC_COUNT3, SUM(DOC_PRICE3) as DOC_PRICE3, 
+SUM(DOC_COUNT4) as DOC_COUNT4, SUM(DOC_PRICE4) as DOC_PRICE4,
+(SUM(DOC_PRICE1)+SUM(DOC_PRICE2)+SUM(DOC_PRICE3)+SUM(DOC_PRICE4))as DOC_PRICE_TOTAL
+from 
+(
+	select ID_SPOOL, ID_COMPANY, NAME,ID_DATE_OUT, DOC_COUNT as DOC_COUNT1, DOC_PRICE as DOC_PRICE1, 0 as DOC_COUNT2, 0 as DOC_PRICE2,0 as DOC_COUNT3, 0 as DOC_PRICE3,0 as DOC_COUNT4, 0 as DOC_PRICE4	
+	from [dbo].[SouhrnFakturFunction] ('''+@Date_from+''', '''+ @Date_to+ ''',1)
+
+	union
+
+	select ID_SPOOL, ID_COMPANY, NAME,ID_DATE_OUT, 0 as DOC_COUNT1, 0 as DOC_PRICE1, DOC_COUNT as DOC_COUNT2, DOC_PRICE as DOC_PRICE2,0 as DOC_COUNT3, 0 as DOC_PRICE3,0 as DOC_COUNT4, 0 as DOC_PRICE4
+	from [dbo].[SouhrnFakturFunction] ('''+@Date_from+''', '''+ @Date_to+ ''',2) 
+
+	union
+
+	select ID_SPOOL, ID_COMPANY, NAME,ID_DATE_OUT, 0 as DOC_COUNT1, 0 as DOC_PRICE1, 0 as DOC_COUNT2, 0 as DOC_PRICE2,DOC_COUNT as DOC_COUNT3, DOC_PRICE as DOC_PRICE3,0 as DOC_COUNT4, 0 as DOC_PRICE4
+	from [dbo].[SouhrnFakturFunction] ('''+@Date_from+''', '''+ @Date_to+ ''',3) 
+
+	union
+
+	select ID_SPOOL, ID_COMPANY, NAME,ID_DATE_OUT, 0 as DOC_COUNT1, 0 as DOC_PRICE1, 0 as DOC_COUNT2, 0 as DOC_PRICE2,0 as DOC_COUNT3, 0 as DOC_PRICE3,DOC_COUNT as DOC_COUNT4, DOC_PRICE as DOC_PRICE4
+	from [dbo].[SouhrnFakturFunction] ('''+@Date_from+''', '''+ @Date_to+ ''',4) 
+) as VnitrniSelect GROUP BY ID_SPOOL, ID_COMPANY, NAME,ID_DATE_OUT ORDER BY '+@KeyField +' '+ @AscOrDesc)
+GO

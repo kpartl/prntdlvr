@@ -8,34 +8,14 @@ use Nextras;
 use \Nette\Forms\Container;
 use \Model\Entity\StatusType;
 
-Container::extensionMethod('addDatePicker', function (Container $container, $name, $label = NULL) {
-	return $container[$name] = new \JanTvrdik\Components\DatePicker($label);
-});
-
 /**
  * Class BannerPresenter
  * @package App\FrontModule
  */
-class BannerPresenter extends BasePresenter {
+class BannerPresenter extends DatePickerBasePresenter {
 
 	/** @var \Model\Repository\BannerRepository @inject */
 	public $bannerRepository;
-
-	public function createComponentDatePicker() {
-		//$form = new \Nella\Forms\Container;
-		$form = new Nette\Application\UI\Form;
-
-		$date_to = StrFTime("%d-%m-%Y %H:%M:%S", Time());
-		$date_from = StrFTime("%d-%m-%Y %H:%M:%S", strToTime("-1 month", strtotime("now")));
-
-		$form->addDatePicker('from')->setValue($date_from);
-		$form->addDatePicker('to')->setValue($date_to);
-		$form->addSubmit('submittButton')->setAttribute('value', 'OK');
-
-		$form->onSuccess[] = $this->datePickerFormSucceeded;
-
-		return $form;
-	}
 
 	/**
 	 * @return \Nextras\Datagrid\Datagrid
@@ -52,7 +32,7 @@ class BannerPresenter extends BasePresenter {
 
 		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.datagrid.latte');
 		$grid->addCellsTemplate(__DIR__ . '/../../templates/@bootstrap3.extended-pagination.datagrid.latte');
-		
+
 
 		return $grid;
 	}
@@ -87,14 +67,14 @@ class BannerPresenter extends BasePresenter {
 
 	public function datePickerFormSucceeded($form) {
 		if ($form['submittButton']->isSubmittedBy()) {
-			$date_from = $form['from']->getValue()->format('d.m.Y H:i:s');
-			$date_to = $form['to']->getValue()->format('d.m.Y H:i:s');
+			$dates = $this->getDates();
+			$date_from = $dates['date_from'];
+			$date_to = $dates['date_to'];
 
 			$this['bannerDatagrid']->invalidateControl();
 		}
 		//$this->redirect('this');
 	}
-
 
 	/**
 	 * @param $filter
@@ -102,38 +82,33 @@ class BannerPresenter extends BasePresenter {
 	 * @return Nette\Database\Table\Selection
 	 */
 	public function prepareDataSource($filter, $order, $paginator = NULL) {
-		
+
 		$storedParams = $this->prepareParams($filter, $order, $paginator);
 
-		$date_from = $this['datePicker']['from']->getValue()->format('d.m.Y H:i:s');
-		$date_to = $this['datePicker']['to']->getValue()->format('d.m.Y');
-		$date_to = $date_to . ' 23:59:59';
-
+		$dates = $this->getDates();
+		$date_from = $dates['date_from'];
+		$date_to = $dates['date_to'];
 
 		$selection = $this->bannerRepository->getBannerStats($date_from, $date_to, $storedParams);
 
 		return $selection;
 	}
-	
+
 	/**
 	 * @param $filter
 	 * @param $order
 	 * @return Nette\Database\Table\Selection
 	 */
-	public function prepareSecondDataSource($filter, $order, $paginator = NULL){
+	public function prepareSecondDataSource($filter, $order, $paginator = NULL) {
 		$storedParams = $this->prepareParams($filter, $order, $paginator);
-		
-		$date_from = $this['datePicker']['from']->getValue()->format('d.m.Y H:i:s');
-		$date_to = $this['datePicker']['to']->getValue()->format('d.m.Y');
-		$date_to = $date_to . ' 23:59:59';
-		
+
+		$dates = $this->getDates();
+		$date_from = $dates['date_from'];
+		$date_to = $dates['date_to'];
+
 		$selection = $this->bannerRepository->getTotalBannerStats($date_from, $date_to, $storedParams);
 
 		return $selection;
-	}
-	
-	public function getColumName($propertyName) {
-		return $propertyName;
 	}
 
 }

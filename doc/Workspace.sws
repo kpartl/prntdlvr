@@ -4,7 +4,7 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
+		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Name="Trans" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
 		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="../../Trans/doc/Trans.pdm"/>
 		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/projects/netbeans/trans/doc/trans.pdm"/>
 		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
@@ -14,8 +14,8 @@
 		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
 		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
 		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/xampp/htdocs/trans/doc/Trans.pdm"/>
-		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/projects/NetBeans/trans/doc/Trans.pdm"/>
-		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/projects/NetBeans/trans/doc/Trans.pdm"/>
+		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
+		<Model Expanded="Yes" ID="{0B3B4567-ACB0-4D25-BD09-5C455BAAF4FC}" Loaded="No" Name="Trans" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Trans.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

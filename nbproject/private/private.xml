@@ -3,12 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/trans/app/model/Entity/StatusTypeEntity.php</file>
-            <file>file:/C:/xampp/htdocs/trans/app/FrontModule/presenters/DocumentPresenter.php</file>
-            <file>file:/C:/xampp/htdocs/trans/app/FrontModule/presenters/StatusPresenter.php</file>
-            <file>file:/C:/xampp/htdocs/trans/app/FrontModule/templates/Document/default.latte</file>
-            <file>file:/C:/xampp/htdocs/trans/app/FrontModule/templates/Document/documentDatagrid.latte</file>
-            <file>file:/C:/xampp/htdocs/trans/app/model/Entity/DocumentEntity.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/presenters/BasePresenter.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/model/Repository/BannerRepository.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/userDatagrid.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/presenters/BannerPresenter.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/model/Repository/ARepository.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/add.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/presenters/UserPresenter.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/edit.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/model/Entity/DocumentEntity.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/templates/Banner/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/Company/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/templates/@layout.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/templates/Status/statusDatagrid.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/AdminModule/templates/User/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/templates/StatusDetail/default.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/templates/Banner/bannerDatagrid.latte</file>
+            <file>file:/C:/projects/NetBeans/trans/app/model/Authenticator.php</file>
+            <file>file:/C:/projects/NetBeans/trans/app/FrontModule/presenters/StatusPresenter.php</file>
         </group>
     </open-files>
 </project-private>

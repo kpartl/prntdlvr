@@ -99,6 +99,27 @@ abstract class ARepository extends \LeanMapper\Repository {
 		return $command;
 	}
 	
+	public function prepareOrderByStoredProcParams($command, array $storedProcParams) {
+		$orderBy = null;
+		$ascOrDesc = null;
+		if (isSet($storedProcParams['orderBy'])) {
+			$orderBy = $storedProcParams['orderBy'];
+			if (isSet($storedProcParams['ascOrDesc']))
+				$ascOrDesc = $storedProcParams['ascOrDesc'];
+		}
+		
+		if ($orderBy) {
+			$command = $command . ", @KeyField= ' $orderBy ' ";
+		}
+
+		if ($ascOrDesc) {
+			$command = $command . ", @AscOrDesc= '$ascOrDesc' ";
+		}
+		
+		return $command;
+	}
+	
+	
 	
 
 }

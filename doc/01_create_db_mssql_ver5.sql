@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     24.6.2014 10:21:05                           */
+/* Created on:     26.6.2014 11:02:36                           */
 /*==============================================================*/
 
 
@@ -357,6 +357,7 @@ CREATE TABLE TPP_DOCUMENT (
    BANNER_ID_2_AMOUNT   INT                  NULL,
    BANNER_ID_3_TYPE     INT                  NULL,
    BANNER_ID_3_AMOUNT   INT                  NULL,
+   DOC_PRICE            FLOAT                NULL,
    CONSTRAINT PK_TPP_DOCUMENT PRIMARY KEY (ID)
 )
 go

@@ -37,5 +37,13 @@ class DocumentRepository extends ARepository {
 			return array();
 		}
 	}
+	
+	public function getSouhrnFaktur($date_from, $date_to, $params){
+	
+		$command = "EXEC  [dbo].[SouhrnFaktur] '".$date_from. "', '".$date_to."'";
+		$row = $this->connection->query($this->prepareOrderByStoredProcParams($command, $params))->fetchAll();
+		
+		return $row;
+	}
 
 }
