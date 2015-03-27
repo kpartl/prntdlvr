@@ -62,12 +62,17 @@ services:
 			- \Nextras\Latte\Macros\RedefineMacro::install(::$service->getCompiler())
 		autowired: no
 
+extensions:
+	translation: Kdyby\Translation\DI\TranslationExtension
+translation:
+	default: cs
+	fallback: [cs_CZ, cs]
 #production < common:
 parameters:
 	database:
 		driver: mssql2005	#POZOR! tento driver (DibiMsSql2005Driver.php) jsem musel pozmenit, aby vracel datetime ve jinem tvaru
 		database: trans 
-		host: HP10036276\SQLEXPRESS
+		host: KAREL-PC\SQLEXPRESS
 		#host: HP20002369\SQLEXPRESS
 		username: trans
 		password: trans

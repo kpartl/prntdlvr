@@ -49,8 +49,8 @@ class StatusPresenter extends BasePresenter {
 			//		if ($this->company_id = null)
 			//			$this->company_id = $company->id;  //nastavim vyber selectBoxu na 1. spolecnost
 		}
-
-		$select = $form->addSelect('company', 'Společnost', $companyNames)
+                $spol = $this->translator->translate('messages.front.company');
+		$select = $form->addSelect('company', $spol, $companyNames)
 						->setPrompt("Vyberte společnost")->setAttribute('class', 'margin8 nav navbar-nav navbar-left');
 
 		$form->addSubmit('change', 'changeButton')->setAttribute('class', 'ajax hide');

@@ -37,6 +37,25 @@ abstract class BaseBasePresenter extends Nette\Application\UI\Presenter {
 
 	/** @var \LeanMapper\IMapper @inject */
 	public $mapper;
+        
+        /** @persistent */
+        public $locale;
+
+        /** @var \Kdyby\Translation\Translator */
+        protected $translator;
+
+    public function injectTranslator(\Kdyby\Translation\Translator $translator)
+    {
+        $this->translator = $translator;
+    }
+    
+    protected function createTemplate($class = NULL)
+{
+    $template = parent::createTemplate($class);
+    $template->registerHelperLoader(callback($this->translator->createTemplateHelpers(), 'loader'));
+
+    return $template;
+}
 	
 	public static $settings = array(
 		'dataSourceLimit' => 100,
